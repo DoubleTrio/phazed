@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuii2d8ejmeo0"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_d00xm"]
+[ext_resource type="Texture2D" uid="uid://bp17hufgyit57" path="res://ui_main_menu_design/main_menu/characters.png" id="1_x04yx"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d00xm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="TitleContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TitleContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/TitleContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_x04yx")
+expand_mode = 3
+
+[node name="TitleText" type="Label" parent="MarginContainer/TitleContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Phazed (WIP NAME)"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+tooltip_text = "TestTip"
+
+[node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+text = "Start"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MenuOptions"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
+text = "Quit"
+
+[node name="EngineText" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Made in Godot
+"
+
+[node name="VersionText" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Version: 0.0.1"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MenuOptions/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MenuOptions/Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MenuOptions/Quit" to="." method="_on_quit_button_down"]
