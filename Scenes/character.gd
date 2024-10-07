@@ -15,7 +15,7 @@ var inputs = {
 #var direction = 0
 #func _ready():
 	#position = position.snapped(Vector2.ONE * tile_size)
-	#position += Vector2.ONE * tile_size/2
+	#position += Vector2.ONE * tile_size/2 hehehaha
 
 # TODO Change to not raycast?
 func _unhandled_input(event):
@@ -34,7 +34,7 @@ func move(dir):
 		#position += inputs[dir] * tile_size
 		var tween = create_tween()
 		tween.tween_property(self, "position",
-			position + inputs[dir] *    grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			position + inputs[dir] * grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 		moving = true
 		await tween.finished
 		moving = false
