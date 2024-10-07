@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://begycqrrx1ucx"]
 
 [ext_resource type="Texture2D" uid="uid://b532xv1iafjkp" path="res://Free 2/Main Characters/Ninja Frog/Idle (32x32).png" id="1_6xe3l"]
-[ext_resource type="Script" path="res://Scenes/character.gd" id="1_wyx3c"]
+[ext_resource type="Script" path="res://Scripts/character.gd" id="1_wyx3c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d67u5"]
 atlas = ExtResource("1_6xe3l")

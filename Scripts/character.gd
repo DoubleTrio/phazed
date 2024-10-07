@@ -1,14 +1,12 @@
 extends Area2D
 
-var animation_speed = 5
+var animation_speed = 16
 var direction = 0
 var moving = false
 var grid_size = 16
 var inputs = {
 	"right": Vector2.RIGHT,
-	"left": Vector2.LEFT,
-	"up": Vector2.UP,
-	"down": Vector2.DOWN
+	"left": Vector2.LEFT # For when a wall is hit to switch directions
 }
 
 
@@ -18,12 +16,9 @@ var inputs = {
 	#position += Vector2.ONE * tile_size/2
 
 # TODO Change to not raycast?
-func _unhandled_input(event):
-	if moving:
-		return
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
-			move(dir)
+func _unhandled_input(event): #Smoother moment
+	if event.is_action_pressed("right"):
+		move("right")
 
 			
 @onready var ray = $RayCast2D
@@ -35,6 +30,6 @@ func move(dir):
 		var tween = create_tween()
 		tween.tween_property(self, "position",
 			position + inputs[dir] *    grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
-		moving = true
-		await tween.finished
-		moving = false
+	else:
+		# This will be where direction is changed
+		return
