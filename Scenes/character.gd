@@ -17,7 +17,7 @@ var inputs = {
 	#position = position.snapped(Vector2.ONE * tile_size)
 	#position += Vector2.ONE * tile_size/2 hahahehe
 	#meow mwow
-
+# meow meow
 # TODO Change to not raycast?
 func _unhandled_input(event):
 	if moving:
