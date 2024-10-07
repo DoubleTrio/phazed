@@ -15,7 +15,8 @@ var inputs = {
 #var direction = 0
 #func _ready():
 	#position = position.snapped(Vector2.ONE * tile_size)
-	#position += Vector2.ONE * tile_size/2 hehehaha
+	#position += Vector2.ONE * tile_size/2 hahahehe
+	#meow
 
 # TODO Change to not raycast?
 func _unhandled_input(event):
