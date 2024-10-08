@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3p0e1xpef1bu" path="res://Assets/Free 2/Terrain (16x16).png" id="2_ajqll"]
 [ext_resource type="PackedScene" uid="uid://hoiqofrgdr4n" path="res://Scenes/teleporter.tscn" id="3_8ccsu"]
 
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8eptm"]
 texture = ExtResource("2_ajqll")
 0:0/0 = 0
