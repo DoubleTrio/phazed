@@ -7,11 +7,9 @@ var grid_size = 16
 var dir_string = "right"
 var inputs = {
 	"right": Vector2.RIGHT,
-	"left": Vector2.LEFT # For when a wall is hit to switch directions
+	"left": Vector2.LEFT 
 }
 
-
-#var direction = 0
 #func _ready():
 	#position = position.snapped(Vector2.ONE * tile_size)
 	#position += Vector2.ONE * tile_size/2
@@ -29,6 +27,15 @@ func _on_timer_timeout():
 	move(dir_string)
 	timer.start()
 	
+#position += Vector2.ONE * tile_size/2 
+# TODO Change to not raycast?
+#func _unhandled_input(event):
+#	if moving:
+#		return
+#	for dir in inputs.keys():
+#		if event.is_action_pressed(dir):
+#			move(dir)
+
 			
 @onready var ray = $RayCast2D
 func move(dir):
@@ -46,4 +53,8 @@ func move(dir):
 		else:
 			dir_string = "right"
 		direction = direction + 1
-		return
+		#position + inputs[dir] * grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+		#moving = true
+		#await tween.finished
+		#moving = false
+
