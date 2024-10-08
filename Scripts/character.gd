@@ -4,6 +4,7 @@ var animation_speed = 16
 var direction = 0
 var moving = false
 var grid_size = 16
+var dir_string = "right"
 var inputs = {
 	"right": Vector2.RIGHT,
 	"left": Vector2.LEFT # For when a wall is hit to switch directions
@@ -15,11 +16,19 @@ var inputs = {
 	#position = position.snapped(Vector2.ONE * tile_size)
 	#position += Vector2.ONE * tile_size/2
 
+@onready var timer = $Timer
+
 # TODO Change to not raycast?
 func _unhandled_input(event): #Smoother moment
-	if event.is_action_pressed("right"):
-		move("right")
+	if event.is_action_pressed(dir_string):
+		move(dir_string)
+		if timer.is_stopped():
+			timer.start()
 
+func _on_timer_timeout():
+	move(dir_string)
+	timer.start()
+	
 			
 @onready var ray = $RayCast2D
 func move(dir):
@@ -32,4 +41,9 @@ func move(dir):
 			position + inputs[dir] *    grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	else:
 		# This will be where direction is changed
+		if direction%2 == 0:
+			dir_string = "left"
+		else:
+			dir_string = "right"
+		direction = direction + 1
 		return
