@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://dgudn5xmjma46"]
 
-[ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/levelMananger.tscn" id="1_b2xkf"]
+[ext_resource type="PackedScene" path="res://Scenes/levelMananger.tscn" id="1_b2xkf"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/character.tscn" id="1_s7weo"]
 [ext_resource type="Texture2D" uid="uid://3p0e1xpef1bu" path="res://Assets/Free 2/Terrain (16x16).png" id="2_ajqll"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/teleporter.tscn" id="3_8ccsu"]
