@@ -266,7 +266,7 @@ tile_map_data = PackedByteArray("AADu/wUAAAAMAAkAAADv/wUAAAANAAgAAADw/wUAAAANAAg
 tile_set = SubResource("TileSet_si7v6")
 
 [node name="Character" parent="." instance=ExtResource("1_s7weo")]
-position = Vector2(-153, 78)
+position = Vector2(-153, 71)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

@@ -95,15 +95,15 @@ radius = 7.07107
 script = ExtResource("1_wyx3c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_62owk")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.487733
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_uxpi2")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 2)
 target_position = Vector2(0, 16)

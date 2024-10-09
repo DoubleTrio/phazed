@@ -19,7 +19,7 @@ var tween = null
 	#meow mwow
 # meow meow
 # TODO Change to not raycast?
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent):
 	if moving:
 		return
 	for dir in inputs.keys():
@@ -28,7 +28,7 @@ func _unhandled_input(event):
 
 			
 @onready var ray = $RayCast2D
-func move(dir):
+func move(dir: String):
 	ray.target_position = inputs[dir] * grid_size
 	ray.force_raycast_update()
 	if !ray.is_colliding():
