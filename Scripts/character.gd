@@ -10,7 +10,7 @@ var inputs = {
 	"up": Vector2.UP,
 	"down": Vector2.DOWN
 }
-
+var tween = null
 
 #var direction = 0
 #func _ready():
@@ -33,7 +33,7 @@ func move(dir):
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		#position += inputs[dir] * tile_size
-		var tween = create_tween()
+		tween = create_tween()
 		tween.tween_property(self, "position",
 			position + inputs[dir] * grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 		moving = true
