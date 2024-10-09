@@ -11,13 +11,11 @@ var inputs = {
 	"right": Vector2.RIGHT,
 	"left": Vector2.LEFT
 }
+var tween = null
 
 @onready var timer = $Timer
 @onready var sprite = $AnimatedSprite2D
 @onready var ray = $RayCast2D
-
-#func _ready():
-	#position = position.snapped(Vector2.ONE * tile_size)
 	
 func _unhandled_input(event):
 	if event.is_action_pressed(dir_string):
@@ -49,7 +47,7 @@ func move(dir):
 			dir_string = "left"
 			dir = "left"
 			sprite.flip_h = true
-	var tween = create_tween()
+	tween = create_tween()
 	tween.tween_property(self, "position", position + inputs[dir] *  grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	moving = true
 	sprite.play("walk", 2)

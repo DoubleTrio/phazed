@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/levelMananger.tscn" id="1_b2xkf"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/character.tscn" id="1_s7weo"]
 [ext_resource type="Texture2D" uid="uid://3p0e1xpef1bu" path="res://Assets/Free 2/Terrain (16x16).png" id="2_ajqll"]
-[ext_resource type="PackedScene" uid="uid://dkbpjse17ko2o" path="res://Scenes/teleporter.tscn" id="3_8ccsu"]
+[ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/teleporter.tscn" id="3_8ccsu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8eptm"]
 texture = ExtResource("2_ajqll")
@@ -266,7 +266,7 @@ tile_map_data = PackedByteArray("AADu/wUAAAAMAAkAAADv/wUAAAANAAgAAADw/wUAAAANAAg
 tile_set = SubResource("TileSet_si7v6")
 
 [node name="Character" parent="." instance=ExtResource("1_s7weo")]
-position = Vector2(-153, 78)
+position = Vector2(-153, 71)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
