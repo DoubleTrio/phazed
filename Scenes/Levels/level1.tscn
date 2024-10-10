@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dgudn5xmjma46"]
+[gd_scene load_steps=9 format=4 uid="uid://dgudn5xmjma46"]
 
-[ext_resource type="PackedScene" path="res://Scenes/levelMananger.tscn" id="1_b2xkf"]
+[ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/levelMananger.tscn" id="1_b2xkf"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/character.tscn" id="1_s7weo"]
 [ext_resource type="Texture2D" uid="uid://3p0e1xpef1bu" path="res://Assets/Free 2/Terrain (16x16).png" id="2_ajqll"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/teleporter.tscn" id="3_8ccsu"]
+[ext_resource type="PackedScene" uid="uid://bqkadsekyt8f3" path="res://Scenes/battery.tscn" id="5_olpbs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8eptm"]
 texture = ExtResource("2_ajqll")
@@ -284,3 +285,7 @@ position = Vector2(-104, 69)
 
 [node name="teleporter2" parent="Teleporters" instance=ExtResource("3_8ccsu")]
 position = Vector2(119, 70)
+
+[node name="Battery" parent="." instance=ExtResource("5_olpbs")]
+position = Vector2(256, 68)
+scale = Vector2(0.02, 0.02)
