@@ -19,12 +19,12 @@ var tween = null
 	
 func _unhandled_input(event):
 	if event.is_action_pressed(dir_string):
-		move(dir_string)
+		move()
 		if timer.is_stopped():
 			timer.start()
 
 func _on_timer_timeout():
-	move(dir_string)
+	move()
 	
 	# TODO: LATER - RESTART THE TIMER AFTER ALL EVENTS INVOLVED WITH 
 	# THE PLATER ARE FINISHED like falling
@@ -33,22 +33,20 @@ func _on_timer_timeout():
 # TODO - This code is really unclean, clean up later 
 # once we have a better idea of how we want the player to move
 # We will need to account for the player falling down
-func move(dir):
-	ray.target_position = inputs[dir] * grid_size
+func move():
+	ray.target_position = inputs[dir_string] * grid_size
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		pass
 	else:
 		if dir_string == "left":
 			dir_string = "right"
-			dir = "right"
 			sprite.flip_h = false
 		else: 
 			dir_string = "left"
-			dir = "left"
 			sprite.flip_h = true
 	tween = create_tween()
-	tween.tween_property(self, "position", position + inputs[dir] *  grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "position", position + inputs[dir_string] *  grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 	moving = true
 	sprite.play("walk", 2)
 	await tween.finished
