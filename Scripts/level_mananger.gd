@@ -29,13 +29,19 @@ func _on_teleporter_click(teleporter: Area2D) -> void:
 		teleporter.activate()
 		while len(active_teleporters) > 2:
 			active_teleporters.pop_front().deactivate()
+	for curr_t in active_teleporters:
+		if len(active_teleporters) == 1:
+			curr_t.select()
+		elif len(active_teleporters) == 2:
+			curr_t.activate()
 
 func _on_teleporter_area_entered(teleporter: Area2D, area: Area2D) -> void:
 	if len(active_teleporters) == 2 and teleporter in active_teleporters:
 		var new_pos = active_teleporters.filter(func(t): return t != teleporter)[0].global_position
 		var tween = area.get("tween")
 		if tween is Tween:
-			await tween.finished
+			tween.stop()
+			tween.finished.emit()
 		area.global_position = new_pos
 		
 		for curr_t in active_teleporters:

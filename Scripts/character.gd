@@ -20,12 +20,10 @@ var tween = null
 func _unhandled_input(event):
 	if event.is_action_pressed(dir_string):
 		move()
-		if timer.is_stopped():
-			timer.start()
+		timer.start()
 
 func _on_timer_timeout():
 	move()
-	
 	# TODO: LATER - RESTART THE TIMER AFTER ALL EVENTS INVOLVED WITH 
 	# THE PLATER ARE FINISHED like falling
 	timer.start()

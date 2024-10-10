@@ -17,11 +17,15 @@ func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void
 
 func _on_area_entered(area: Area2D) -> void:
 	teleporter_area_entered.emit(self, area)
-	
 
 func activate() -> void:
 	sprite.modulate = Color.GREEN
-	
+	if self.has_overlapping_areas():
+		var closest_area = self.get_overlapping_areas().reduce(func (a,b):return a if self.position.distance_to(a.position)<=self.position.distance_to(b.position) else b)
+		teleporter_area_entered.emit(self, closest_area)
+
+func select() -> void:
+	sprite.modulate = Color.YELLOW
 
 func deactivate() -> void:
 	sprite.modulate = Color.WHITE
