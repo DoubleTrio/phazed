@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0fs8hiag2xea"]
+
+[ext_resource type="Texture2D" uid="uid://cv0w32rrvq47o" path="res://Assets/Free 2/Items/Boxes/Box1/Idle.png" id="1_fawer"]
+[ext_resource type="Script" path="res://Scripts/Entities/box.gd" id="1_pxfr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8c6r"]
+size = Vector2(16, 16)
+
+[node name="Box" type="Area2D"]
+script = ExtResource("1_pxfr2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_fawer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_q8c6r")

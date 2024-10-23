@@ -15,6 +15,12 @@ run/main_scene="res://Scenes/Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DS="*res://Scripts/Utils/priority_queue.gd"
+LevelEvents="*res://Scripts/level_events.gd"
+Helpers="*res://Scripts/helpers.gd"
+
 [dotnet]
 
 project/assembly_name="Phazed"

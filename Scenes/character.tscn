@@ -1,9 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://begycqrrx1ucx"]
+[gd_scene load_steps=34 format=3 uid="uid://begycqrrx1ucx"]
 
 [ext_resource type="Texture2D" uid="uid://b532xv1iafjkp" path="res://Assets/Free 2/Main Characters/Ninja Frog/Idle (32x32).png" id="1_6xe3l"]
-[ext_resource type="Script" path="res://Scripts/character.gd" id="1_wyx3c"]
+[ext_resource type="Script" path="res://Scripts/Entities/character.gd" id="1_wyx3c"]
 [ext_resource type="Texture2D" uid="uid://hg1oo5gylors" path="res://Assets/Free 2/Main Characters/Ninja Frog/Fall (32x32).png" id="2_ea6y0"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="2_vytan"]
 [ext_resource type="Texture2D" uid="uid://p10qobtmch7b" path="res://Assets/Free 2/Main Characters/Ninja Frog/Run (32x32).png" id="3_8n4ii"]
+[ext_resource type="Resource" uid="uid://byxak11313ag6" path="res://Scripts/Events/EntityEvent/Resources/self_move_event.tres" id="3_f264u"]
+[ext_resource type="Script" path="res://Scripts/Components/direction_component.gd" id="6_131hh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14xw2"]
 atlas = ExtResource("2_ea6y0")
@@ -192,10 +195,11 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxpi2"]
-radius = 7.07107
+radius = 4.0
 
 [node name="Character" type="Area2D"]
 script = ExtResource("1_wyx3c")
+on_action_scripts = Array[ExtResource("2_vytan")]([ExtResource("3_f264u")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
@@ -210,8 +214,5 @@ shape = SubResource("CircleShape2D_uxpi2")
 position = Vector2(0, 2)
 target_position = Vector2(0, 16)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="DirectionComponent" type="Node" parent="."]
+script = ExtResource("6_131hh")

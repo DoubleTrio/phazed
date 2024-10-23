@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqkadsekyt8f3"]
+[gd_scene load_steps=6 format=3 uid="uid://pqboxejsdn6r"]
 
-[ext_resource type="Script" path="res://Scripts/battery.gd" id="1_6ivd0"]
+[ext_resource type="Script" path="res://Scripts/Entities/battery.gd" id="1_6ivd0"]
 [ext_resource type="Texture2D" uid="uid://bk2mia8lgcin0" path="res://Assets/battery.jpg" id="1_q0pcf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bcorp"]

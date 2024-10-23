@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dpdb6fk3jf2tu"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/fall_event.gd" id="1_mwg0d"]
+
+[resource]
+script = ExtResource("1_mwg0d")
+fall_speed = 3.0
+priority = 1.0

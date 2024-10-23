@@ -1,5 +1,7 @@
 extends Control
 
+class_name MainMenu
+
 func _ready():
 	$MarginContainer/VBoxContainer/MenuOptions/Start.grab_focus();
 	
