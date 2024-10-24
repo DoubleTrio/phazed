@@ -12,8 +12,10 @@ var entities: Array[Entity] = [] as Array[Entity]
 
 
 @export var game_stats: GameStats
-@export var before_map_turn_start_scripts: Array[EntityEvent] = []
-@export var on_turn_end_scripts: Array[EntityEvent] = []
+
+@export var on_before_action_scripts: Array[EntityEvent] = []
+@export var on_action_scripts: Array[EntityEvent] = []
+@export var on_after_action_scripts: Array[EntityEvent] = []
 @export var on_map_turn_start_scripts: Array[EntityEvent] = []
 @export var on_map_turn_end_scripts: Array[EntityEvent] = []
 
@@ -21,12 +23,17 @@ var grid_size = 16
 
 var times_teleported = 0
 
-signal all_actions_finished()
-signal end_turn_actions_finished()
+signal before_actions_finished()
+signal actions_finished()
+signal after_actions_finished()
+
+signal start_map_turn_finished()
+signal end_map_turn_finished()
 
 var timer = Timer.new()
 
 func _ready() -> void:
+	_insert_into_priority()
 	LevelEvents.on_teleport.connect(_on_teleport)
 	add_child(timer)
 	timer.set_autostart(true)
@@ -35,12 +42,20 @@ func _ready() -> void:
 	timer.start()
 	for children: Entity in ent.get_children():
 		entities.append(children)
+
+
+func _insert_into_priority():
+	for priority_event: EntityEvent in on_before_action_scripts:
+		active_effects.on_before_action_queue.insert(priority_event.priority, priority_event)
+	for priority_event: EntityEvent in on_action_scripts:
+		active_effects.on_action_queue.insert(priority_event.priority, priority_event)
+	for priority_event: EntityEvent in on_after_action_scripts:
+		active_effects.on_after_action_queue.insert(priority_event.priority, priority_event)
 	for priority_event: EntityEvent in on_map_turn_start_scripts:
-		active_effects.on_map_turn_start_queue.insert(priority_event.priority, priority_event)
-		#
+		active_effects.on_map_turn_start_queue.insert(priority_event.priority, priority_event)	
 	for priority_event: EntityEvent in on_map_turn_end_scripts:
 		active_effects.on_map_turn_end_queue.insert(priority_event.priority, priority_event)
-	
+		
 func _on_teleport():
 	times_teleported += 1
 	game_stats.total_times_teleported += 1
@@ -48,44 +63,49 @@ func _on_teleport():
 	
 func tick():
 	timer.paused = true
+	
 	var context: LevelContext = LevelContext.new()
+	await wait_all_map_starts(context)
+	await wait_all_before_actions(context)
 	await wait_all_actions(context)
-	
-	# TODO Wait all events
-	
-	
-	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
-		await script.apply(self, null, context)
+	await wait_all_after_actions(context)
+	await wait_all_map_ends(context)
 	timer.paused = false
 
-func wait_all_actions(context: LevelContext):
-	var finished_action_count: int = 0
+
+
+func wait_all_before_actions(context: LevelContext):
+	var sigs = entities.map((func(x: Entity): return x.finished_before_action))
 	for entity: Entity in entities:
-		entity.action(self)
-		entity.finished_action.connect(
-			func(): 
-				finished_action_count += 1
-				if (finished_action_count == len(entities)):
-					all_actions_finished.emit()
-		)	
-	await all_actions_finished
+		entity.before_action(self, context)
+	await Signals.all(sigs)
 	
-func wait_all_map_turn_end(context: LevelContext):
-	var finished_action_count: int = 0
+func wait_all_actions(context: LevelContext):
+	var sigs = entities.map((func(x: Entity): return x.finished_action))
 	for entity: Entity in entities:
-		#entity.finished_on_map_turn_end(self)
-		entity.finished_action.connect(
-			func(): 
-				finished_action_count += 1
-				if (finished_action_count == len(entities)):
-					end_turn_actions_finished.emit()
-		)	
-	await end_turn_actions_finished
+		entity.action(self, context)
+	await Signals.all(sigs)
+
+func wait_all_after_actions(context: LevelContext):
+	var sigs = entities.map((func(x: Entity): return x.finished_after_action))
+	for entity: Entity in entities:
+		entity.after_action(self, context)
+	await Signals.all(sigs)
 	
 
-func on_turn_end():
-	pass
-func on_entity_turn_end():
-	pass
-func on_map_turn_end():
-	pass
+func wait_all_map_starts(context: LevelContext):
+	for script: EntityEvent in active_effects.on_map_turn_start_queue.get_queue():
+		await script.apply(self, null, context)
+	var sigs = entities.map((func(x: Entity): return x.finished_map_turn_start))
+	for entity: Entity in entities:
+		entity.map_turn_start(self, context)
+	await Signals.all(sigs)
+
+
+func wait_all_map_ends(context: LevelContext):
+	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
+		await script.apply(self, null, context)
+	var sigs = entities.map((func(x: Entity): return x.finished_map_turn_end))
+	for entity: Entity in entities:
+		entity.map_turn_end(self, context)
+	await Signals.all(sigs)

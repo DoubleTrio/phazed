@@ -378,40 +378,25 @@ class PriorityQ:
 		
 		# Put items of both queues into a new list
 		# Create new queue with those items and return that queue
+		#
+		#var list = []
+		#var own_queue = get_queue()
+		#var other_queue = priority_queue.get_queue()
+		#
+		#list += own_queue
+		#list += other_queue
 		
-		var list = []
-		var own_queue = get_queue()
-		var other_queue = priority_queue.get_queue()
-		
-		# Loop through own entries
-		var length_own = own_queue.size() - 1
-		var length_other = other_queue.size() - 1
-		var i = max(length_own, length_other)
-		while (i >= 0):
-			
-			if (i < length_own):
-				
-				if (own_queue[i] != null):
-					
-					list.append(own_queue[i])
-			
-			if (i < length_other):
-				
-				if (other_queue[i] != null):
-					
-					list.append(other_queue[i])
-			
-			i -= 1
-		
-		var queue = DS.PriorityQ.new(list, set_maintain_min)
-		
-		return queue
 
-	#var test_queue: DS.PriorityQ  = DS.PriorityQ.new([]) as DS.PriorityQ
-	#test_queue.insert(1, "cheese")
-	#test_queue.insert(3, "pancake")
-	#test_queue.insert(2, "apple")
-	#var array = test_queue.get_queue()
-	#
-	#for element in array:
-		#print(element)
+		
+		
+		var queue = DS.PriorityQ.new([], set_maintain_min)
+		
+		for element in array:
+			if element != null:
+				queue.insert(element[0], element[1])
+		
+		for element in priority_queue.array:
+			if element != null:
+				queue.insert(element[0], element[1])
+				
+		return queue

@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_in65t")
-total_times_teleported = 0
+total_times_teleported = 1
