@@ -10,6 +10,7 @@ var entities: Array[Entity] = [] as Array[Entity]
 
 @onready var active_effects: ActiveEffect = ActiveEffect.new()
 
+@onready var tile_map_layer: TileMapLayer = $TileMapLayer as TileMapLayer
 
 @export var game_stats: GameStats
 
@@ -19,7 +20,7 @@ var entities: Array[Entity] = [] as Array[Entity]
 @export var on_map_turn_start_scripts: Array[EntityEvent] = []
 @export var on_map_turn_end_scripts: Array[EntityEvent] = []
 
-var grid_size = 16
+@onready var grid_size = tile_map_layer.tile_set.tile_size.x
 
 var times_teleported = 0
 
@@ -33,6 +34,7 @@ signal end_map_turn_finished()
 var timer = Timer.new()
 
 func _ready() -> void:
+
 	_insert_into_priority()
 	LevelEvents.on_teleport.connect(_on_teleport)
 	add_child(timer)
@@ -63,12 +65,15 @@ func _on_teleport():
 	
 func tick():
 	timer.paused = true
-	
 	var context: LevelContext = LevelContext.new()
 	await wait_all_map_starts(context)
+	#print("All map starts okay")
 	await wait_all_before_actions(context)
+	#print("All before action okay")
 	await wait_all_actions(context)
+	#print("All actions")
 	await wait_all_after_actions(context)
+	#print("All after actions")
 	await wait_all_map_ends(context)
 	timer.paused = false
 
@@ -107,5 +112,5 @@ func wait_all_map_ends(context: LevelContext):
 		await script.apply(self, null, context)
 	var sigs = entities.map((func(x: Entity): return x.finished_map_turn_end))
 	for entity: Entity in entities:
-		entity.map_turn_end(self, context)
+		entity.call_deferred("map_turn_end", self, context)
 	await Signals.all(sigs)

@@ -1,17 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0fs8hiag2xea"]
+[gd_scene load_steps=6 format=3 uid="uid://b0fs8hiag2xea"]
 
 [ext_resource type="Texture2D" uid="uid://cv0w32rrvq47o" path="res://Assets/Free 2/Items/Boxes/Box1/Idle.png" id="1_fawer"]
 [ext_resource type="Script" path="res://Scripts/Entities/box.gd" id="1_pxfr2"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="2_pxhha"]
+[ext_resource type="Resource" uid="uid://dpdb6fk3jf2tu" path="res://Scripts/Events/EntityEvent/Resources/fall_event.tres" id="3_as8qy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8c6r"]
 size = Vector2(16, 16)
 
-[node name="Box" type="Area2D"]
+[node name="Box" type="Area2D" groups=["Pushable"]]
 script = ExtResource("1_pxfr2")
+on_map_turn_end_scripts = Array[ExtResource("2_pxhha")]([ExtResource("3_as8qy")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_fawer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_q8c6r")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, -8)
+target_position = Vector2(16, 0)
+collide_with_areas = true

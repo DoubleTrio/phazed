@@ -24,4 +24,3 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 		LevelEvents.on_teleport.emit()
 		teleporter_manager.remove_active_teleporters()
 		
-	event_finished.emit()

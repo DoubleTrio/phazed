@@ -83,7 +83,6 @@ func map_turn_start(level_scene: LevelScene, level_context: LevelContext):
 	finished_map_turn_start.emit()
 
 func map_turn_end(level_scene: LevelScene, level_context: LevelContext):
-	await get_tree().create_timer(0.001).timeout
 	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():
 		await script.apply(level_scene, self, level_context)
 	finished_map_turn_end.emit()

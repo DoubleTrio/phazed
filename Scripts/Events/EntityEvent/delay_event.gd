@@ -5,6 +5,5 @@ extends EntityEvent
 func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 	print("This event always runs last")
 	
-	await owner.get_tree().create_timer(delay).timeout
-	event_finished.emit()
+	await level_scene.get_tree().create_timer(delay).timeout
 	
