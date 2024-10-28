@@ -66,6 +66,7 @@ func _on_teleport():
 func tick():
 	timer.paused = true
 	var context: LevelContext = LevelContext.new()
+	
 	await wait_all_map_starts(context)
 	#print("All map starts okay")
 	await wait_all_before_actions(context)
@@ -80,37 +81,69 @@ func tick():
 
 
 func wait_all_before_actions(context: LevelContext):
-	var sigs = entities.map((func(x: Entity): return x.finished_before_action))
+	var sigs_map = entities.map(
+		func(x: Entity): return x.finished_before_action
+	)
+
+	var sigs: Array[Signal] = []
+	sigs.assign(sigs_map)
+	
 	for entity: Entity in entities:
 		entity.before_action(self, context)
-	await Signals.all(sigs)
+	await Promise.all(Promise.from_many(sigs)).wait()
 	
 func wait_all_actions(context: LevelContext):
-	var sigs = entities.map((func(x: Entity): return x.finished_action))
+	var sigs_map = entities.map(
+		func(x: Entity): return x.finished_action
+	)
+	var sigs: Array[Signal] = []
+	sigs.assign(sigs_map)
+	
 	for entity: Entity in entities:
 		entity.action(self, context)
-	await Signals.all(sigs)
+	await Promise.all(Promise.from_many(sigs)).wait()
 
 func wait_all_after_actions(context: LevelContext):
-	var sigs = entities.map((func(x: Entity): return x.finished_after_action))
+	var sigs_map = entities.map(
+		func(x: Entity): return x.finished_after_action
+	)
+	var sigs: Array[Signal] = []
+	sigs.assign(sigs_map)
+	
 	for entity: Entity in entities:
 		entity.after_action(self, context)
-	await Signals.all(sigs)
-	
+	await Promise.all(Promise.from_many(sigs)).wait()
+
 
 func wait_all_map_starts(context: LevelContext):
-	for script: EntityEvent in active_effects.on_map_turn_start_queue.get_queue():
+	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
 		await script.apply(self, null, context)
-	var sigs = entities.map((func(x: Entity): return x.finished_map_turn_start))
+	var sigs_map = entities.map(
+		func(x: Entity): return x.finished_map_turn_start
+	)
+
+	var sigs: Array[Signal] = []
+	sigs.assign(sigs_map)
+	
 	for entity: Entity in entities:
 		entity.map_turn_start(self, context)
-	await Signals.all(sigs)
+	
+	await Promise.all(Promise.from_many(sigs)).wait()
 
 
 func wait_all_map_ends(context: LevelContext):
 	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
 		await script.apply(self, null, context)
-	var sigs = entities.map((func(x: Entity): return x.finished_map_turn_end))
+	var sigs_map = entities.map(
+		func(x: Entity): return x.finished_map_turn_end
+	)
+
+	var sigs: Array[Signal] = []
+	sigs.assign(sigs_map)
+	
 	for entity: Entity in entities:
-		entity.call_deferred("map_turn_end", self, context)
-	await Signals.all(sigs)
+		print(entity)
+		entity.map_turn_end(self, context)
+	
+	await Promise.all(Promise.from_many(sigs)).wait()
+	

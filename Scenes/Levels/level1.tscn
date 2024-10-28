@@ -248,10 +248,10 @@ position = Vector2(159, 31)
 position = Vector2(-96, -80)
 
 [node name="teleporter2" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
-position = Vector2(112, 80)
+position = Vector2(-176, 48)
 
 [node name="teleporter3" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
-position = Vector2(-224, 32)
+position = Vector2(-128, 48)
 
 [node name="teleporter4" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
 position = Vector2(0, 48)
@@ -262,37 +262,41 @@ position = Vector2(159, 31)
 [node name="Character3" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
 position = Vector2(-160, 48)
 
-[node name="Temporary (Remove Later)" type="Node" parent="LevelScene"]
+[node name="Character" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
+position = Vector2(-16, 48)
 
-[node name="Character2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("1_s7weo")]
-visible = false
-position = Vector2(-272, 48)
-
-[node name="Character" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("1_s7weo")]
-visible = false
-position = Vector2(-144, 48)
-
-[node name="Box" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("8_qr4iq")]
+[node name="Box" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
 position = Vector2(-176, 48)
 
-[node name="Box2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("8_qr4iq")]
+[node name="Box3" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-176, 32)
+
+[node name="Box2" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
 position = Vector2(-176, 16)
 
-[node name="Box3" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, 32)
+[node name="Box7" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-176, 0)
+
+[node name="Box8" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-176, -32)
+
+[node name="Box9" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-176, -16)
+
+[node name="Box4" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-96, 48)
+
+[node name="Box5" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-96, 16)
+
+[node name="Box6" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-96, 32)
+
+[node name="Temporary (Remove Later)" type="Node" parent="LevelScene"]
 
 [node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("5_olpbs")]
 position = Vector2(112, 32)
 metadata/_edit_group_ = true
-
-[node name="Box4" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("8_qr4iq")]
-position = Vector2(-96, 48)
-
-[node name="Box5" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("8_qr4iq")]
-position = Vector2(-96, 16)
-
-[node name="Box6" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("8_qr4iq")]
-position = Vector2(-96, 32)
 
 [node name="Camera2D" type="Camera2D" parent="LevelScene"]
 zoom = Vector2(2.39, 2.5)
