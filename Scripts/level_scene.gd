@@ -142,7 +142,6 @@ func wait_all_map_ends(context: LevelContext):
 	sigs.assign(sigs_map)
 	
 	for entity: Entity in entities:
-		print(entity)
 		entity.map_turn_end(self, context)
 	
 	await Promise.all(Promise.from_many(sigs)).wait()
