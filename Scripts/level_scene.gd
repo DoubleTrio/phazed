@@ -3,6 +3,8 @@ extends Node2D
 
 class_name LevelScene
 
+static var instance: LevelScene = null
+
 var entities: Array[Entity] = [] as Array[Entity]
 @onready var ent = $Entities
 @onready var teleport_manager: TeleportManager = $TeleportManager as TeleportManager
@@ -41,7 +43,13 @@ signal end_map_turn_finished()
 
 var timer = Timer.new()
 
+
+
+func _init():
+	instance = self if instance == null else instance
+	
 func _ready() -> void:
+
 
 	_insert_into_priority()
 	LevelEvents.on_teleport.connect(_on_teleport)
@@ -131,7 +139,7 @@ func wait_all_after_actions(context: LevelContext):
 
 func wait_all_map_starts(context: LevelContext):
 	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
-		await script.apply(self, null, context)
+		await script.apply(null, context)
 	var sigs_map = entities.map(
 		func(x: Entity): return x.finished_map_turn_start
 	)
@@ -147,7 +155,7 @@ func wait_all_map_starts(context: LevelContext):
 
 func wait_all_map_ends(context: LevelContext):
 	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
-		await script.apply(self, null, context)
+		await script.apply(null, context)
 	var sigs_map = entities.map(
 		func(x: Entity): return x.finished_map_turn_end
 	)

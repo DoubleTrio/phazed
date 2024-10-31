@@ -1,11 +1,12 @@
 extends EntityEvent
 
-@export var fall_speed: float = 6
+@export var fall_speed: float = 2
 	
-func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
-	level_scene.flip_gravity()
+func apply(owner: Entity, context: LevelContext):
+	await LevelScene.instance.get_tree().create_timer(0.1).timeout
+	LevelScene.instance.flip_gravity()
 	
-	var gravity: Vector2 = level_scene.gravity
+	var gravity: Vector2 = LevelScene.instance.gravity
 		
 	var count: int = 0
 	
@@ -13,7 +14,7 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 
 	var max_iterations: int = 0
 	
-	for entity: Entity in level_scene.entities:
+	for entity: Entity in LevelScene.instance.entities:
 		if (entity.contains_component("RayCast2D")):
 			var tiles_to_file: int = 0	
 			var raycast: RayCast2D = entity.get_component("RayCast2D")
@@ -40,7 +41,7 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 
 		
 		
-		var tw = level_scene.create_tween()
+		var tw = LevelScene.instance.create_tween()
 		tw.set_trans(Tween.TRANS_SINE)
 		#tw.set_ease(Tween.EASE_IN)
 		tw.set_parallel()
@@ -65,7 +66,7 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 				#
 				## TODO: Check if the player hits any triggers while falling
 				while (tile_check < 64):
-					var end_position = gravity * level_scene.grid_size * tile_check
+					var end_position = gravity * LevelScene.instance.grid_size * tile_check
 					raycast.target_position = end_position
 					raycast.force_raycast_update()
 					if raycast.is_colliding():
@@ -74,8 +75,7 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 				if (tile_check > 1):
 					#
 					var total_tiles_fall = tile_check - 1
-					#await level_scene.get_tree().create_timer(0.1).timeout
-					tw.tween_property(entity, "position", entity.position + gravity * level_scene.grid_size * total_tiles_fall, 1.0/fall_speed)
+					tw.tween_property(entity, "position", entity.position + gravity * LevelScene.instance.grid_size * total_tiles_fall, 1.0/fall_speed)
 					if (sprite != null):
 						sprite.play("fall", 2)
 						tw.tween_callback(func(): sprite.play("idle", 2))

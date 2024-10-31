@@ -14,8 +14,8 @@ func _insert_into_priority():
 	for priority_event: EntityEvent in trigger_scripts:
 		pq.insert(priority_event.priority, priority_event)
 
-func trigger(level_scene: LevelScene, owner: Entity, context: LevelContext):
+func trigger(owner: Entity, context: LevelContext):
 	on_trigger.emit()
 	await get_tree().process_frame
 	for script: EntityEvent in pq.get_queue():	
-		await script.apply(level_scene, owner, context)
+		await script.apply(owner, context)

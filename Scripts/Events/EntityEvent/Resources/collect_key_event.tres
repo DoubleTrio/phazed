@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://oqgullu06btl"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/collect_key_event.gd" id="1_xuypm"]
+
+[resource]
+script = ExtResource("1_xuypm")
+priority = 0.0

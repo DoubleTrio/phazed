@@ -2,10 +2,10 @@ extends EntityEvent
 
 @export var fall_speed: float = 1.5;
 
-func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
+func apply(owner: Entity, context: LevelContext):
 
 	var gravity: Vector2 = context.gravity_direction
-	var grid_size = level_scene.grid_size
+	var grid_size = LevelScene.instance.grid_size
 	var sprite: AnimatedSprite2D
 	
 	if (owner != null and owner.contains_component("RayCast2D")):
@@ -21,7 +21,7 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 		#
 		## TODO: Check if the player hits any triggers while falling
 		while (tile_check < 64):
-			var end_position = gravity * level_scene.grid_size * tile_check
+			var end_position = gravity * grid_size * tile_check
 			raycast.target_position = end_position
 			raycast.force_raycast_update()
 			if raycast.is_colliding():
@@ -32,7 +32,7 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 			var total_tiles_fall = tile_check - 1
 			#await level_scene.get_tree().create_timer(0.1).timeout
 			var tween = owner.create_tween()	
-			tween.tween_property(owner, "position", owner.position + gravity * level_scene.grid_size * total_tiles_fall, 1.0/fall_speed).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(owner, "position", owner.position + gravity * grid_size * total_tiles_fall, 1.0/fall_speed).set_trans(Tween.TRANS_SINE)
 			if (sprite != null):
 				sprite.play("fall", 2)
 			await tween.finished

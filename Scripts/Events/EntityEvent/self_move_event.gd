@@ -10,11 +10,11 @@ var old_raycast_pos: Vector2
 var grid_size: int
 
 
-func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
+func apply(owner: Entity, context: LevelContext):
 	if (owner != null and owner.contains_component("RayCast2D") and owner.contains_component("AnimatedSprite2D") and owner.contains_component("DirectionComponent")):
 		raycast = owner.get_component("RayCast2D") as RayCast2D
 		old_raycast_pos = raycast.position
-		grid_size = level_scene.grid_size
+		grid_size = LevelScene.instance.grid_size
 		
 		var line: Line2D = null
 		
@@ -80,11 +80,6 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 		raycast.force_raycast_update()
 		if (raycast.is_colliding()):
 			collider = raycast.get_collider()
-			#print(collider)
-			#print(collider.is_in_group("Pushable"))
-
-			#if (not (collider is Area2D and collider.is_in_group("Pushable"))):
-							# Check the opposite direction
 			raycast.target_position = raycast.position + (-1 * direction_comp.direction) * grid_size
 			raycast.force_raycast_update()
 			if (!raycast.is_colliding()):
@@ -93,19 +88,18 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 		else:
 			should_move = true
 			
-		#print(raycast.position)
-		#print(should_move)
+
 		if (should_move):
 			
 			var tween = owner.create_tween()
-			tween.tween_property(owner, "position", owner.position + direction_comp.direction *  level_scene.grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(owner, "position", owner.position + direction_comp.direction * grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 			sprite.play("walk", 2)
 			await tween.finished
 			if owner.has_recently_collided():
 				var area: DetectAreaComponent = owner.last_collided
 				if (area.entity.contains_component("TriggerComponent")):
 					var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
-					await trigger_component.trigger(level_scene, owner, context)
+					await trigger_component.trigger(area.entity, context)
 					
 				
 		else:
