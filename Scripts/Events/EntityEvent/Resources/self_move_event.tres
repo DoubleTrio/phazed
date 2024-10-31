@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://byxak11313ag6"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/self_move_event.gd" id="1_yrmw3"]
+
+[resource]
+script = ExtResource("1_yrmw3")
+animation_speed = 16
+priority = 0.0

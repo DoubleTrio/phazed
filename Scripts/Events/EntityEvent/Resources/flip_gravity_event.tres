@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dkyvana3gjmdv"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/flip_gravity_event.gd" id="1_1osgo"]
+
+[resource]
+script = ExtResource("1_1osgo")
+priority = 0.0

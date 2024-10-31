@@ -1,0 +1,40 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhf80lgxfsvjh"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/gravity_switch.gd" id="1_prlu2"]
+[ext_resource type="Texture2D" uid="uid://da2jhdrr83h0u" path="res://Assets/compass_north.png" id="1_slv0n"]
+[ext_resource type="Texture2D" uid="uid://c7413ep5234hr" path="res://Assets/compass_east.png" id="3_ym07u"]
+[ext_resource type="Texture2D" uid="uid://qo2nf4tvcb5i" path="res://Assets/compass_south.png" id="4_cc214"]
+[ext_resource type="Texture2D" uid="uid://c0khgxc1xbp1g" path="res://Assets/compass_west.png" id="5_0ncm8"]
+[ext_resource type="Script" path="res://Scripts/Components/detect_area_component.gd" id="6_p8rej"]
+[ext_resource type="Script" path="res://Scripts/Components/trigger_component.gd" id="7_7bygb"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="8_g7wee"]
+[ext_resource type="Resource" uid="uid://dkyvana3gjmdv" path="res://Scripts/Events/EntityEvent/Resources/flip_gravity_event.tres" id="9_b4ojd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p7nt"]
+size = Vector2(12, 10)
+
+[node name="GravitySwitch" type="Area2D"]
+z_index = -1
+collision_layer = 2
+script = ExtResource("1_prlu2")
+north_texture = ExtResource("1_slv0n")
+east_texture = ExtResource("3_ym07u")
+south_texture = ExtResource("4_cc214")
+west_texture = ExtResource("5_0ncm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_slv0n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_3p7nt")
+
+[node name="DetectAreaComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
+script = ExtResource("6_p8rej")
+entity = NodePath("..")
+
+[node name="TriggerComponent" type="Node" parent="."]
+script = ExtResource("7_7bygb")
+trigger_scripts = Array[ExtResource("8_g7wee")]([ExtResource("9_b4ojd")])

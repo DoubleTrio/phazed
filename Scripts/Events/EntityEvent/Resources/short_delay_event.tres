@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dd2mtlbpjw45u"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/delay_event.gd" id="1_63ige"]
+
+[resource]
+script = ExtResource("1_63ige")
+delay = 3.0
+priority = -1.0

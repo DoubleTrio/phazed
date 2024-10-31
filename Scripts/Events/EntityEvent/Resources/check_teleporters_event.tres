@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bh45cwx6c0tgs"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/check_teleporters_event.gd" id="1_ggc17"]
+
+[resource]
+script = ExtResource("1_ggc17")
+priority = 0.0

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="GameStats" load_steps=2 format=3 uid="uid://bwb8wjpngyfje"]
+
+[ext_resource type="Script" path="res://Scripts/game_stats.gd" id="1_in65t"]
+
+[resource]
+script = ExtResource("1_in65t")
+total_times_teleported = 1
