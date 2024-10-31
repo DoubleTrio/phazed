@@ -13,7 +13,7 @@ func _ready():
 	sprite.modulate = tint_color
 	
 func _gravity_changed(direction: Vector2):
-	print("TODO: Change sprite orientation")
+	#print("TODO: Change sprite orientation")
 	pass
 
 func _direction_changed(direction: Vector2):

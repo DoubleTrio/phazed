@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_1osgo")
+fall_speed = 4.5
 priority = 0.0

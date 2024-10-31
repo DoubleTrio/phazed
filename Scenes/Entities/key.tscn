@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://cubwp7yihpr51"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/key.gd" id="1_jklu4"]
+[ext_resource type="Script" path="res://Scripts/Components/detect_area_component.gd" id="2_paa7l"]
+[ext_resource type="Texture2D" uid="uid://ly8p6au6mi5b" path="res://Key Items 16x16/01.png" id="3_sr2jv"]
+[ext_resource type="Script" path="res://Scripts/Components/trigger_component.gd" id="4_6ilpx"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="5_7cgqk"]
+[ext_resource type="Script" path="res://Scripts/Components/id_component.gd" id="5_alcft"]
+[ext_resource type="Resource" uid="uid://oqgullu06btl" path="res://Scripts/Events/EntityEvent/Resources/collect_key_event.tres" id="6_tmqf7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v6h7d"]
+radius = 7.0
+
+[node name="Key" type="Area2D"]
+z_index = -1
+collision_layer = 2
+script = ExtResource("1_jklu4")
+
+[node name="DetectAreaComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
+script = ExtResource("2_paa7l")
+entity = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
+texture = ExtResource("3_sr2jv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
+shape = SubResource("CircleShape2D_v6h7d")
+
+[node name="TriggerComponent" type="Node" parent="."]
+script = ExtResource("4_6ilpx")
+trigger_scripts = Array[ExtResource("5_7cgqk")]([ExtResource("6_tmqf7")])
+
+[node name="IDComponent" type="Node" parent="."]
+script = ExtResource("5_alcft")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, -8)
+target_position = Vector2(0, 16)

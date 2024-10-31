@@ -1,7 +1,7 @@
 extends EntityEvent
 
-func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
-	var teleporter_manager: TeleportManager = level_scene.teleport_manager
+func apply(owner: Entity, context: LevelContext):
+	var teleporter_manager: TeleportManager = LevelScene.instance.teleport_manager
 	var active_teleporters = teleporter_manager.active_teleporters 
 	var should_teleport = false
 	
