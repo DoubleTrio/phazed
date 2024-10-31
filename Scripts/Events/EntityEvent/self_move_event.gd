@@ -16,13 +16,22 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 		old_raycast_pos = raycast.position
 		grid_size = level_scene.grid_size
 		
+		var line: Line2D = null
+		
+		
+		if owner.contains_component("Line2D"):
+			line = owner.get_component("Line2D") as Line2D
+		
 		var sprite: AnimatedSprite2D = owner.get_component("AnimatedSprite2D") as AnimatedSprite2D
 		var direction_comp: DirectionComponent = owner.get_component("DirectionComponent") as DirectionComponent
+
+
 
 
 		var should_move = false
 		var collider = null
 		var move_dir = direction_comp.direction
+		
 		
 	
 	
@@ -52,12 +61,26 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 
 
 		#print("START POSITION 1:", raycast.position)
-		raycast.target_position = raycast.position + direction_comp.direction * grid_size
+		#raycast.position = 
+		
+
+#
+		raycast.position = Vector2(4, -4)
+		raycast.target_position = raycast.position + (direction_comp.direction * grid_size) 
+
+		if (line != null): 
+			line.clear_points()
+			line.add_point(Vector2(4, -4))
+			line.add_point(raycast.position + (direction_comp.direction * grid_size))
+		#print(raycast.position, "START")
+		#print(raycast.target_position, "TARGET")
 		#print("TARGET POSITION:", raycast.target_position)
 		#print("TARGET POSITION 1:", raycast.target_position)
+
 		raycast.force_raycast_update()
 		if (raycast.is_colliding()):
 			collider = raycast.get_collider()
+			#print(collider)
 			#print(collider.is_in_group("Pushable"))
 
 			#if (not (collider is Area2D and collider.is_in_group("Pushable"))):
@@ -69,12 +92,22 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 				direction_comp.flip_direction()
 		else:
 			should_move = true
+			
+		#print(raycast.position)
+		#print(should_move)
 		if (should_move):
 			
 			var tween = owner.create_tween()
 			tween.tween_property(owner, "position", owner.position + direction_comp.direction *  level_scene.grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 			sprite.play("walk", 2)
 			await tween.finished
+			if owner.has_recently_collided():
+				var area: DetectAreaComponent = owner.last_collided
+				if (area.entity.contains_component("TriggerComponent")):
+					var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
+					await trigger_component.trigger(level_scene, owner, context)
+					
+				
 		else:
 			sprite.play("idle", 2)
 
@@ -137,10 +170,9 @@ func can_move_in_direction(direction: Vector2) -> bool:
 				offset += direction * 16
 				continue
 			else:
-				#print("Collision detected with non-pushable object:", collider)
+		
 				break
 		else:
-			#print("No collision, movement allowed.")
 			can_move = true
 			break
 

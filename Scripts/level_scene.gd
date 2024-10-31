@@ -23,6 +23,14 @@ var entities: Array[Entity] = [] as Array[Entity]
 @onready var grid_size = tile_map_layer.tile_set.tile_size.x
 
 var times_teleported = 0
+var gravity: Vector2 = Vector2.DOWN :
+	set(value):
+		if value == gravity: return
+		gravity = value
+		LevelEvents.on_gravity_changed.emit(value)
+
+
+#LevelEvents.on_gravity_changed.connect(_gravity_change)
 
 signal before_actions_finished()
 signal actions_finished()
@@ -62,6 +70,12 @@ func _on_teleport():
 	times_teleported += 1
 	game_stats.total_times_teleported += 1
 	stats_hud.set_teleporter_label("Times Teleported: " + str(times_teleported))
+
+func set_gravity(direction: Vector2):
+	gravity = direction
+	
+func flip_gravity():
+	gravity = gravity * -1
 	
 func tick():
 	timer.paused = true

@@ -6,7 +6,6 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 	var should_teleport = false
 	
 	if (len(active_teleporters) < 2):
-		event_finished.emit()
 		return
 			
 	for teleporter: Teleporter in active_teleporters:

@@ -16,13 +16,24 @@ signal finished_after_action()
 signal finished_map_turn_start()
 signal finished_map_turn_end()
 
-signal enter_detect_area(area: DetectAreaComponent)
+signal enter_detect_area(detect_area: DetectAreaComponent)
 
 @onready var _components_dict = {} 
 
+var last_collided: DetectAreaComponent
+
+func has_recently_collided():
+	return last_collided != null
+
+#func triggereD_c
 func _ready():
 	_init_components_dict()
 	_insert_into_priority()
+	enter_detect_area.connect(_enter_detect_area)
+
+
+func _enter_detect_area(detect_area: DetectAreaComponent):
+	last_collided = detect_area
 
 func _init_components_dict():
 	for component in get_children():

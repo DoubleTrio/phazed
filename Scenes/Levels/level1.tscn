@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dgudn5xmjma46"]
+[gd_scene load_steps=18 format=4 uid="uid://dgudn5xmjma46"]
 
 [ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/level_scene.tscn" id="1_b2xkf"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/character.tscn" id="1_s7weo"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="11_6dsmp"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="11_7krl3"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="14_fcd3a"]
+[ext_resource type="PackedScene" uid="uid://bhf80lgxfsvjh" path="res://Scenes/gravity_switch.tscn" id="15_m5s3y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qekjl"]
 texture = ExtResource("2_ajqll")
@@ -263,7 +264,7 @@ position = Vector2(159, 31)
 position = Vector2(-160, 48)
 
 [node name="Character" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
-position = Vector2(-16, 48)
+position = Vector2(-64, 48)
 
 [node name="Box" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
 position = Vector2(-176, 48)
@@ -293,6 +294,12 @@ position = Vector2(-96, 16)
 position = Vector2(-96, 32)
 
 [node name="Temporary (Remove Later)" type="Node" parent="LevelScene"]
+
+[node name="GravitySwitch2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_m5s3y")]
+position = Vector2(16, -96)
+
+[node name="GravitySwitch" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_m5s3y")]
+position = Vector2(-32, 48)
 
 [node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("5_olpbs")]
 position = Vector2(112, 32)

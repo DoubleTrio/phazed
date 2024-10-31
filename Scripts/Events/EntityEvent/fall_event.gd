@@ -4,7 +4,7 @@ extends EntityEvent
 
 func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 
-	var gravity: Vector2 = context.gravity_direction
+	var gravity: Vector2 = level_scene.gravity
 	var grid_size = level_scene.grid_size
 	var sprite: AnimatedSprite2D
 	
@@ -32,7 +32,7 @@ func apply(level_scene: LevelScene, owner: Entity, context: LevelContext):
 			var total_tiles_fall = tile_check - 1
 			#await level_scene.get_tree().create_timer(0.1).timeout
 			var tween = owner.create_tween()	
-			tween.tween_property(owner, "position", owner.position + gravity * level_scene.grid_size * total_tiles_fall, 1.0/fall_speed).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(owner, "position", owner.position + gravity * level_scene.grid_size * total_tiles_fall, 1.0/fall_speed).set_trans(Tween.TRANS_CUBIC)
 			if (sprite != null):
 				sprite.play("fall", 2)
 			await tween.finished
