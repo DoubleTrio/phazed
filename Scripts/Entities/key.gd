@@ -6,14 +6,13 @@ extends Entity
 
 @onready var detect_area_component: DetectAreaComponent = $DetectAreaComponent as DetectAreaComponent
 
-@export var tint_color: Color = Color.WHITE
-	
-@export var id: int
+@export var color_id: ColorID
+
 #@export var north_texture: Texture2D 
 
 func _ready():
-	id_component.set_id(id)
-	sprite.modulate = tint_color
+	id_component.set_id(color_id.id)
+	sprite.modulate = color_id.color
 	LevelEvents.on_gravity_changed.connect(_gravity_change)
 	super._ready()
 

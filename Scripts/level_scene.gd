@@ -6,13 +6,18 @@ class_name LevelScene
 static var instance: LevelScene = null
 
 var entities: Array[Entity] = [] as Array[Entity]
+var blocks: Array[Area2D] = [] as Array[Area2D]
+
+
 @onready var ent = $Entities
+@onready var bl = $Blocks
+
 @onready var teleport_manager: TeleportManager = $TeleportManager as TeleportManager
 @onready var stats_hud: StatsHud = $"../UI/StatsHud" as StatsHud
 
 @onready var active_effects: ActiveEffect = ActiveEffect.new()
 
-@onready var tile_map_layer: TileMapLayer = $TileMapLayer as TileMapLayer
+@onready var tilemap_layer: TileMapLayer = $TileMapLayer as TileMapLayer
 
 @export var game_stats: GameStats
 
@@ -22,7 +27,7 @@ var entities: Array[Entity] = [] as Array[Entity]
 @export var on_map_turn_start_scripts: Array[EntityEvent] = []
 @export var on_map_turn_end_scripts: Array[EntityEvent] = []
 
-@onready var grid_size = tile_map_layer.tile_set.tile_size.x
+@onready var grid_size = tilemap_layer.tile_set.tile_size.x
 
 var times_teleported = 0
 var gravity: Vector2 = Vector2.DOWN :
@@ -61,6 +66,9 @@ func _ready() -> void:
 	for children: Entity in ent.get_children():
 		entities.append(children)
 
+	for children: Area2D in bl.get_children():
+		blocks.append(children)
+	#print(bl)
 
 func _insert_into_priority():
 	for priority_event: EntityEvent in on_before_action_scripts:
@@ -167,4 +175,12 @@ func wait_all_map_ends(context: LevelContext):
 		entity.map_turn_end(self, context)
 	
 	await Promise.all(Promise.from_many(sigs)).wait()
+	
+func remove_entity(entity: Entity):
+	entities.erase(entity)
+	entity.queue_free()
+	
+func remove_block(block: Area2D):
+	blocks.erase(block)
+	block.queue_free()
 	
