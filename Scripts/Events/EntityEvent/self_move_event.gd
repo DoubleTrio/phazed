@@ -95,11 +95,7 @@ func apply(owner: Entity, context: LevelContext):
 			tween.tween_property(owner, "position", owner.position + direction_comp.direction * grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 			sprite.play("walk", 2)
 			await tween.finished
-			if owner.has_recently_collided():
-				var area: DetectAreaComponent = owner.last_collided
-				if (area.entity.contains_component("TriggerComponent")):
-					var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
-					await trigger_component.trigger(area.entity, context)
+			owner.try_activate_trigger(context)
 					
 				
 		else:

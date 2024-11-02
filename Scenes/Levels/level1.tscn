@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dgudn5xmjma46"]
+[gd_scene load_steps=23 format=4 uid="uid://dgudn5xmjma46"]
 
 [ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/level_scene.tscn" id="1_b2xkf"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/Entities/character.tscn" id="1_s7weo"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="5_bw0ui"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="5_olpbs"]
 [ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="8_qr4iq"]
+[ext_resource type="Resource" uid="uid://cx2m4eudvfxx8" path="res://Scripts/Events/EntityEvent/Resources/apply_trigger.tres" id="9_achxd"]
 [ext_resource type="PackedScene" uid="uid://cubwp7yihpr51" path="res://Scenes/Entities/key.tscn" id="10_8sy27"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="11_6dsmp"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="11_7krl3"]
@@ -264,11 +265,14 @@ position = Vector2(0, 48)
 [node name="Entities" type="Node2D" parent="LevelScene"]
 position = Vector2(159, 31)
 
-[node name="Character3" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
-position = Vector2(-352, 48)
-
 [node name="Character" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
 position = Vector2(-64, 48)
+on_after_action_scripts = Array[ExtResource("3_o7t8h")]([ExtResource("9_achxd")])
+
+[node name="Key" parent="LevelScene/Entities" instance=ExtResource("10_8sy27")]
+position = Vector2(-16, -32)
+scale = Vector2(0.992674, 1)
+color_id = ExtResource("11_vyrdb")
 
 [node name="Box" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
 position = Vector2(-176, 48)
@@ -302,18 +306,13 @@ position = Vector2(32, 48)
 scale = Vector2(0.985402, 1)
 color_id = ExtResource("15_237pv")
 
-[node name="Key" parent="LevelScene/Entities" instance=ExtResource("10_8sy27")]
-position = Vector2(16, 48)
-scale = Vector2(0.992674, 1)
-color_id = ExtResource("11_vyrdb")
-
 [node name="Temporary (Remove Later)" type="Node" parent="LevelScene"]
 
 [node name="GravitySwitch2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_m5s3y")]
-position = Vector2(16, -32)
+position = Vector2(-16, 48)
 
 [node name="GravitySwitch" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_m5s3y")]
-position = Vector2(-96, -32)
+position = Vector2(-48, -96)
 
 [node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("5_olpbs")]
 position = Vector2(112, 32)
@@ -347,6 +346,8 @@ color_code = ExtResource("11_vyrdb")
 [node name="LockBlock2" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
 position = Vector2(-113, 63)
 color_code = ExtResource("11_vyrdb")
+
+[node name="Temp" type="Node2D" parent="LevelScene"]
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

@@ -60,7 +60,7 @@ func _ready() -> void:
 	LevelEvents.on_teleport.connect(_on_teleport)
 	add_child(timer)
 	timer.set_autostart(true)
-	timer.set_wait_time(0.5)
+	timer.set_wait_time(0.3)
 	timer.connect("timeout", tick)
 	timer.start()
 	for children: Entity in ent.get_children():
@@ -102,9 +102,9 @@ func tick():
 	await wait_all_before_actions(context)
 	#print("All before action okay")
 	await wait_all_actions(context)
-	#print("All actions")
+	print("All actions")
 	await wait_all_after_actions(context)
-	#print("All after actions")
+	print("All after actions")
 	await wait_all_map_ends(context)
 	timer.paused = false
 

@@ -31,8 +31,16 @@ func _ready():
 	_insert_into_priority()
 	enter_detect_area.connect(_enter_detect_area)
 
+func try_activate_trigger(context):
+	if has_recently_collided():
+		var area: DetectAreaComponent = self.last_collided
+		if (area.entity.contains_component("TriggerComponent")):
+			var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
+			await trigger_component.trigger(self, area.entity, context)
+	last_collided = null
 
 func _enter_detect_area(detect_area: DetectAreaComponent):
+	print(detect_area.entity)
 	last_collided = detect_area
 
 func _init_components_dict():
@@ -45,7 +53,7 @@ func _insert_into_priority():
 	for priority_event: EntityEvent in on_action_scripts:
 		active_effects.on_action_queue.insert(priority_event.priority, priority_event)
 	for priority_event: EntityEvent in on_after_action_scripts:
-		active_effects.on_after_action_queue.insert(priority_event.priority, priority_event)
+		active_effects.on_after_action_end_queue.insert(priority_event.priority, priority_event)
 	for priority_event: EntityEvent in on_map_turn_start_scripts:
 		active_effects.on_map_turn_start_queue.insert(priority_event.priority, priority_event)	
 	for priority_event: EntityEvent in on_map_turn_end_scripts:
@@ -82,7 +90,7 @@ func action(level_scene: LevelScene, level_context: LevelContext):
 	
 func after_action(level_scene: LevelScene, level_context: LevelContext):
 	await get_tree().process_frame
-	var pq = active_effects.on_after_action_end.merge_with(level_scene.active_effects.on_after_action_end)
+	var pq = active_effects.on_after_action_end_queue.merge_with(level_scene.active_effects.on_after_action_end_queue)
 	for script: EntityEvent in pq.get_queue():
 		await script.apply(self, level_context)
 	finished_after_action.emit()

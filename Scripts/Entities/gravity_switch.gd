@@ -13,7 +13,7 @@ func _ready():
 	sprite.texture = south_texture
 	LevelEvents.on_gravity_changed.connect(_gravity_change)
 	
-
+	
 func _gravity_change(direction: Vector2):
 	var next_texture: Texture2D
 

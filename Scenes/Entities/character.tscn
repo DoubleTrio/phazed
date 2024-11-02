@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://p10qobtmch7b" path="res://Assets/Free 2/Main Characters/Ninja Frog/Run (32x32).png" id="3_8n4ii"]
 [ext_resource type="Resource" uid="uid://byxak11313ag6" path="res://Scripts/Events/EntityEvent/Resources/self_move_event.tres" id="3_f264u"]
 [ext_resource type="Resource" uid="uid://dpdb6fk3jf2tu" path="res://Scripts/Events/EntityEvent/Resources/fall_event.tres" id="4_dacux"]
-[ext_resource type="Resource" uid="uid://cx2m4eudvfxx8" path="res://Scripts/Events/EntityEvent/Resources/reset_entity_properties.tres" id="5_cvonb"]
+[ext_resource type="Resource" uid="uid://cx2m4eudvfxx8" path="res://Scripts/Events/EntityEvent/Resources/apply_trigger.tres" id="5_cvonb"]
 [ext_resource type="Script" path="res://Scripts/Components/direction_component.gd" id="6_131hh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14xw2"]
