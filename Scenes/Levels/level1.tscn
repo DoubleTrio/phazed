@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://dgudn5xmjma46"]
+[gd_scene load_steps=23 format=4 uid="uid://dgudn5xmjma46"]
 
 [ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/level_scene.tscn" id="1_b2xkf"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/Entities/character.tscn" id="1_s7weo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="3_8ccsu"]
 [ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="3_o7t8h"]
 [ext_resource type="Resource" uid="uid://bh45cwx6c0tgs" path="res://Scripts/Events/EntityEvent/Resources/check_teleporters_event.tres" id="4_r2rwj"]
+[ext_resource type="Resource" uid="uid://b8amm4e4q7sia" path="res://Scripts/Events/EntityEvent/Resources/global_fall_event.tres" id="5_2ng6n"]
 [ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="5_bw0ui"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="5_olpbs"]
 [ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="8_qr4iq"]
@@ -239,7 +240,7 @@ sources/0 = SubResource("TileSetAtlasSource_qekjl")
 [node name="LevelScene" parent="." instance=ExtResource("1_b2xkf")]
 position = Vector2(-159, -31)
 game_stats = ExtResource("2_x7krn")
-on_map_turn_end_scripts = Array[ExtResource("3_o7t8h")]([ExtResource("4_r2rwj")])
+on_map_turn_end_scripts = Array[ExtResource("3_o7t8h")]([ExtResource("4_r2rwj"), ExtResource("5_2ng6n")])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="LevelScene"]
 position = Vector2(351, 95)
@@ -250,10 +251,10 @@ tile_set = SubResource("TileSet_q2qr8")
 position = Vector2(159, 31)
 
 [node name="teleporter" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
-position = Vector2(-96, -80)
+position = Vector2(-176, 48)
 
 [node name="teleporter2" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
-position = Vector2(-176, 48)
+position = Vector2(-32, -96)
 
 [node name="teleporter3" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
 position = Vector2(-128, 48)
@@ -265,10 +266,10 @@ position = Vector2(0, 48)
 position = Vector2(159, 31)
 
 [node name="Character3" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
-position = Vector2(-352, 48)
+position = Vector2(-272, -64)
 
 [node name="Character" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
-position = Vector2(-64, 48)
+position = Vector2(-80, 48)
 
 [node name="Box" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
 position = Vector2(-176, 48)
@@ -289,31 +290,31 @@ position = Vector2(-176, -32)
 position = Vector2(-176, -16)
 
 [node name="Box4" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-96, 48)
+position = Vector2(-128, 48)
 
 [node name="Box5" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-96, 16)
+position = Vector2(-176, -48)
 
 [node name="Box6" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-96, 32)
+position = Vector2(-176, -64)
 
 [node name="Key2" parent="LevelScene/Entities" instance=ExtResource("10_8sy27")]
-position = Vector2(32, 48)
+position = Vector2(-48, 48)
 scale = Vector2(0.985402, 1)
 color_id = ExtResource("15_237pv")
 
 [node name="Key" parent="LevelScene/Entities" instance=ExtResource("10_8sy27")]
-position = Vector2(16, 48)
+position = Vector2(-32, -32)
 scale = Vector2(0.992674, 1)
 color_id = ExtResource("11_vyrdb")
 
 [node name="Temporary (Remove Later)" type="Node" parent="LevelScene"]
 
 [node name="GravitySwitch2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_m5s3y")]
-position = Vector2(16, -32)
+position = Vector2(-144, -48)
 
 [node name="GravitySwitch" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_m5s3y")]
-position = Vector2(-96, -32)
+position = Vector2(-16, 48)
 
 [node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("5_olpbs")]
 position = Vector2(112, 32)
@@ -325,27 +326,27 @@ zoom = Vector2(2.39, 2.5)
 [node name="Blocks" type="Node2D" parent="LevelScene"]
 
 [node name="LockBlock4" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-81, 47)
+position = Vector2(-97, -17)
 color_code = ExtResource("15_237pv")
 
 [node name="LockBlock5" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-81, 79)
+position = Vector2(-97, 15)
 color_code = ExtResource("15_237pv")
 
 [node name="LockBlock6" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-81, 63)
+position = Vector2(-97, -1)
 color_code = ExtResource("15_237pv")
 
 [node name="LockBlock" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-113, 47)
+position = Vector2(-113, -17)
 color_code = ExtResource("11_vyrdb")
 
 [node name="LockBlock3" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-113, 79)
+position = Vector2(-113, 15)
 color_code = ExtResource("11_vyrdb")
 
 [node name="LockBlock2" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-113, 63)
+position = Vector2(-113, -1)
 color_code = ExtResource("11_vyrdb")
 
 [node name="UI" type="Control" parent="."]

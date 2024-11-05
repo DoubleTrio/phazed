@@ -1,6 +1,6 @@
 extends EntityEvent
 
-@export var animation_speed = 16
+@export var animation_speed = 4
 
 
 
@@ -72,10 +72,6 @@ func apply(owner: Entity, context: LevelContext):
 			line.clear_points()
 			line.add_point(Vector2(4, -4))
 			line.add_point(raycast.position + (direction_comp.direction * grid_size))
-		#print(raycast.position, "START")
-		#print(raycast.target_position, "TARGET")
-		#print("TARGET POSITION:", raycast.target_position)
-		#print("TARGET POSITION 1:", raycast.target_position)
 
 		raycast.force_raycast_update()
 		if (raycast.is_colliding()):
@@ -95,11 +91,12 @@ func apply(owner: Entity, context: LevelContext):
 			tween.tween_property(owner, "position", owner.position + direction_comp.direction * grid_size, 1.0/animation_speed).set_trans(Tween.TRANS_SINE)
 			sprite.play("walk", 2)
 			await tween.finished
-			if owner.has_recently_collided():
-				var area: DetectAreaComponent = owner.last_collided
-				if (area.entity.contains_component("TriggerComponent")):
-					var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
-					await trigger_component.trigger(area.entity, context)
+			await owner.try_activate_trigger(context)
+			#if owner.has_recently_collided():
+				#var area: DetectAreaComponent = owner.last_collided
+				#if (area.entity.contains_component("TriggerComponent")):
+					#var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
+					#await trigger_component.trigger(area.entity, context)
 					
 				
 		else:
@@ -110,9 +107,9 @@ func apply(owner: Entity, context: LevelContext):
 
 class DFSNode:
 	var location : Vector2
-	var area : Area2D
+	var area : Entity
 	
-	func _init(location: Vector2, area: Area2D):
+	func _init(location: Vector2, area: Entity):
 		self.location = location
 		self.area = area
 		

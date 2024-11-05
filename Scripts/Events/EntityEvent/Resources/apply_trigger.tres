@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cx2m4eudvfxx8"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/apply_trigger.gd" id="1_barpb"]
+
+[resource]
+script = ExtResource("1_barpb")
+priority = 5.0

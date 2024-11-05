@@ -1,7 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cx2m4eudvfxx8"]
-
-[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/reset_entity_properties.gd" id="1_5ay1v"]
-
-[resource]
-script = ExtResource("1_5ay1v")
-priority = 5.0

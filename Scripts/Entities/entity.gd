@@ -22,6 +22,16 @@ signal enter_detect_area(detect_area: DetectAreaComponent)
 
 var last_collided: DetectAreaComponent
 
+func try_activate_trigger(context):
+	if has_recently_collided():
+		var area: DetectAreaComponent = self.last_collided
+		last_collided = null
+		#print(area.entity)
+		if (area.entity.contains_component("TriggerComponent")):
+			var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
+			await trigger_component.trigger(area.entity, context)
+
+
 func has_recently_collided():
 	return last_collided != null
 

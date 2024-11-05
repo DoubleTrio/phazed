@@ -1,4 +1,4 @@
 extends EntityEvent
 
 func apply(owner: Entity, context: LevelContext):
-	owner.last_collided = null
+	await owner.try_activate_trigger(context)

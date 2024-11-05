@@ -60,7 +60,7 @@ func _ready() -> void:
 	LevelEvents.on_teleport.connect(_on_teleport)
 	add_child(timer)
 	timer.set_autostart(true)
-	timer.set_wait_time(0.5)
+	timer.set_wait_time(0.3)
 	timer.connect("timeout", tick)
 	timer.start()
 	for children: Entity in ent.get_children():
@@ -146,7 +146,7 @@ func wait_all_after_actions(context: LevelContext):
 
 
 func wait_all_map_starts(context: LevelContext):
-	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
+	for script: EntityEvent in active_effects.on_map_turn_start_queue.get_queue():	
 		await script.apply(null, context)
 	var sigs_map = entities.map(
 		func(x: Entity): return x.finished_map_turn_start
@@ -162,7 +162,9 @@ func wait_all_map_starts(context: LevelContext):
 
 
 func wait_all_map_ends(context: LevelContext):
+
 	for script: EntityEvent in active_effects.on_map_turn_end_queue.get_queue():	
+		#print(script.resource_path)
 		await script.apply(null, context)
 	var sigs_map = entities.map(
 		func(x: Entity): return x.finished_map_turn_end

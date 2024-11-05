@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://begycqrrx1ucx"]
+[gd_scene load_steps=34 format=3 uid="uid://begycqrrx1ucx"]
 
 [ext_resource type="Texture2D" uid="uid://b532xv1iafjkp" path="res://Assets/Free 2/Main Characters/Ninja Frog/Idle (32x32).png" id="1_6xe3l"]
 [ext_resource type="Script" path="res://Scripts/Entities/character.gd" id="1_wyx3c"]
@@ -6,8 +6,6 @@
 [ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="2_vytan"]
 [ext_resource type="Texture2D" uid="uid://p10qobtmch7b" path="res://Assets/Free 2/Main Characters/Ninja Frog/Run (32x32).png" id="3_8n4ii"]
 [ext_resource type="Resource" uid="uid://byxak11313ag6" path="res://Scripts/Events/EntityEvent/Resources/self_move_event.tres" id="3_f264u"]
-[ext_resource type="Resource" uid="uid://dpdb6fk3jf2tu" path="res://Scripts/Events/EntityEvent/Resources/fall_event.tres" id="4_dacux"]
-[ext_resource type="Resource" uid="uid://cx2m4eudvfxx8" path="res://Scripts/Events/EntityEvent/Resources/reset_entity_properties.tres" id="5_cvonb"]
 [ext_resource type="Script" path="res://Scripts/Components/direction_component.gd" id="6_131hh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14xw2"]
@@ -199,17 +197,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_uxpi2"]
 radius = 4.0
 
-[node name="Character" type="Area2D" node_paths=PackedStringArray("sprite")]
+[node name="Character" type="Area2D"]
 script = ExtResource("1_wyx3c")
-sprite = NodePath("AnimatedSprite2D")
 on_action_scripts = Array[ExtResource("2_vytan")]([ExtResource("3_f264u")])
-on_map_turn_end_scripts = Array[ExtResource("2_vytan")]([ExtResource("4_dacux"), ExtResource("5_cvonb")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -8)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_62owk")
-animation = &"fall"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
