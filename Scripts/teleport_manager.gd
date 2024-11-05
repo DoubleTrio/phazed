@@ -5,9 +5,12 @@ class_name TeleportManager
 # variable to store both teleporters
 var active_teleporters = []
 
+@onready var teleport_noise = $AudioStreamPlayer
+
 func _ready() -> void:
-	for teleporter: Teleporter in self.get_children():
-		teleporter.click_component.click.connect(_on_teleporter_click)
+	for child in self.get_children():
+		if child is Teleporter:
+			child.click_component.click.connect(_on_teleporter_click)
 
 func _on_teleporter_click(tp: Area2D) -> void:
 	var teleporter: Teleporter = tp

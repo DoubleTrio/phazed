@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://orkocvc34pjk"]
+[gd_scene load_steps=3 format=3 uid="uid://orkocvc34pjk"]
 
 [ext_resource type="Script" path="res://Scripts/teleport_manager.gd" id="1_mmmtk"]
+[ext_resource type="AudioStream" uid="uid://cyqhvcinvqqh7" path="res://Sounds/woop.mp3" id="2_i2i1j"]
 
 [node name="TeleportManager" type="Node2D"]
 script = ExtResource("1_mmmtk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_i2i1j")
