@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dgudn5xmjma46"]
+[gd_scene load_steps=24 format=4 uid="uid://dgudn5xmjma46"]
 
 [ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/level_scene.tscn" id="1_b2xkf"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/Entities/character.tscn" id="1_s7weo"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b4w71q4eudct0" path="res://Scenes/Blocks/lock_block.tscn" id="14_jgmc3"]
 [ext_resource type="Resource" uid="uid://bouag52a0gqmj" path="res://Scripts/Resources/orange.tres" id="15_237pv"]
 [ext_resource type="PackedScene" uid="uid://bhf80lgxfsvjh" path="res://Scenes/Entities/gravity_switch.tscn" id="15_m5s3y"]
+[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="21_0wnda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qekjl"]
 texture = ExtResource("2_ajqll")
@@ -392,3 +393,12 @@ scale = Vector2(0.5, 0.5)
 [node name="Global" type="Node2D" parent="."]
 position = Vector2(-288, 160)
 script = ExtResource("14_fcd3a")
+
+[node name="lvl_button" parent="." instance=ExtResource("21_0wnda")]
+offset_left = -396.0
+offset_top = -156.0
+offset_right = -360.0
+offset_bottom = -131.0
+theme_override_font_sizes/font_size = 12
+text = "Back"
+level_path = "res://Scenes/Menu/level_selection.tscn"
