@@ -45,7 +45,7 @@ extends EntityEvent
 @export var fall_speed: float = 16
 	
 func apply(owner: Entity, context: LevelContext):
-	#print()
+	#print("GALL")
 	await LevelScene.instance.get_tree().create_timer(0.1).timeout
 	var gravity: Vector2 = LevelScene.instance.gravity
 	var columns = {}
@@ -92,8 +92,8 @@ func apply(owner: Entity, context: LevelContext):
 			if (entity != null):
 				fall_check_entity_group.append(entity)
 		await wait_all_finished_falling(fall_check_entity_group, context)
-		for entity: Entity in fall_check_entity_group:
-			await entity.try_activate_trigger(context)
+		#for entity: Entity in fall_check_entity_group:
+			#await entity.try_activate_trigger(context)
 		# Boolean to check everything has finished falling
 		#var finished_falling = []
 		#finished_falling.resize(len(fall_check_entity_group))
@@ -117,7 +117,9 @@ func apply(owner: Entity, context: LevelContext):
 				#
 				#if (entity.contains_component("AnimatedSprite2D")):
 					#sprite = entity.get_component("AnimatedSprite2D") as AnimatedSprite2D
-				#
+									#if (sprite != null):
+						#sprite.play("fall", 2)
+						#tw.tween_callback(func(): sprite.play("idle", 2))
 				#var raycast: RayCast2D = entity.get_component("RayCast2D")
 				#var max_check = 64
 				#var tile_check = 1
@@ -162,9 +164,13 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 		tw.set_trans(Tween.TRANS_LINEAR)
 		tw.set_parallel()		
 		for entity: Entity in fall_check_entity_group:
-			#print(entity)
+			
+			
+
+						
 			var raycast: RayCast2D = entity.get_component("RayCast2D")
-			var end_position = LevelScene.instance.gravity * LevelScene.instance.grid_size
+			raycast.position = Vector2(4, -4)
+			var end_position = raycast.position + LevelScene.instance.gravity * LevelScene.instance.grid_size
 			raycast.target_position = end_position
 			raycast.force_raycast_update()
 			if !raycast.is_colliding():
@@ -172,11 +178,18 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 			else:
 				count += 1
 				
-		if count >= n:	
+			var sprite
+			
+			if (entity.contains_component("AnimatedSprite2D")):
+				sprite = entity.get_component("AnimatedSprite2D") as AnimatedSprite2D
+	
+				sprite.play("fall", 2)
+				tw.tween_callback(func(): sprite.play("idle", 2))
+						
+				
+		if count >= n:
 			break
 			
-		
-			#
 		tw.play()
 		await tw.finished
 		#
