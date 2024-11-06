@@ -1,5 +1,7 @@
 extends Entity
 
+class_name Character
+
 @export var tint_color: Color = Color.WHITE
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var raycast = $RayCast2D

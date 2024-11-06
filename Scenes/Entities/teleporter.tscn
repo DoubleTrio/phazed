@@ -1,10 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://dp43g47q8jjmd"]
+[gd_scene load_steps=22 format=3 uid="uid://dp43g47q8jjmd"]
 
 [ext_resource type="Texture2D" uid="uid://8hq6lban1nqq" path="res://Assets/Free 2/Items/Fruits/Collected.png" id="1_6auhy"]
 [ext_resource type="Script" path="res://Scripts/Entities/teleporter.gd" id="1_mib8y"]
 [ext_resource type="Script" path="res://Scripts/Components/click_component.gd" id="3_q6643"]
 [ext_resource type="Script" path="res://Scripts/Components/toggle_component.gd" id="4_5g4cl"]
 [ext_resource type="Script" path="res://Scripts/Components/detect_area_component.gd" id="5_qgmpp"]
+[ext_resource type="Script" path="res://Scripts/Components/trigger_component.gd" id="6_katcj"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="7_bcu6e"]
+[ext_resource type="Resource" uid="uid://bh45cwx6c0tgs" path="res://Scripts/Events/EntityEvent/Resources/check_teleporters_event.tres" id="8_katxu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ewn6"]
 radius = 7.07107
@@ -121,3 +124,8 @@ script = ExtResource("4_5g4cl")
 [node name="DetectAreaComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
 script = ExtResource("5_qgmpp")
 entity = NodePath("..")
+
+[node name="TriggerComponent" type="Node" parent="."]
+script = ExtResource("6_katcj")
+trigger_scripts = Array[ExtResource("7_bcu6e")]([ExtResource("8_katxu")])
+count = 1

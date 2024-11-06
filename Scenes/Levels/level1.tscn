@@ -252,7 +252,7 @@ tile_set = SubResource("TileSet_q2qr8")
 position = Vector2(159, 31)
 
 [node name="teleporter" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
-position = Vector2(-176, 48)
+position = Vector2(-240, 16)
 
 [node name="teleporter2" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
 position = Vector2(-32, -96)
@@ -261,43 +261,58 @@ position = Vector2(-32, -96)
 position = Vector2(-128, 48)
 
 [node name="teleporter4" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
-position = Vector2(0, 48)
+position = Vector2(-96, 32)
+
+[node name="teleporter5" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
+position = Vector2(-160, 48)
+
+[node name="teleporter6" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
+position = Vector2(-176, -96)
+
+[node name="teleporter7" parent="LevelScene/TeleportManager" instance=ExtResource("3_8ccsu")]
+position = Vector2(-192, -224)
 
 [node name="Entities" type="Node2D" parent="LevelScene"]
 position = Vector2(159, 31)
 
+[node name="Box14" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-160, 32)
+
+[node name="Box15" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-160, 48)
+
+[node name="Box16" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-176, 32)
+
+[node name="Box17" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-176, 48)
+
 [node name="Character3" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
 position = Vector2(-272, -64)
 
-[node name="Character" parent="LevelScene/Entities" instance=ExtResource("1_s7weo")]
-position = Vector2(-80, 48)
+[node name="Box10" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-192, 0)
 
-[node name="Box" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, 48)
+[node name="Box11" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-192, 16)
 
-[node name="Box3" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, 32)
+[node name="Box12" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-208, 0)
 
-[node name="Box2" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, 16)
+[node name="Box13" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-208, 16)
 
 [node name="Box7" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, 0)
-
-[node name="Box8" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, -32)
-
-[node name="Box9" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, -16)
-
-[node name="Box4" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-128, 48)
-
-[node name="Box5" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, -48)
+position = Vector2(-192, 32)
 
 [node name="Box6" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
-position = Vector2(-176, -64)
+position = Vector2(-192, 48)
+
+[node name="Box8" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-208, 32)
+
+[node name="Box9" parent="LevelScene/Entities" instance=ExtResource("8_qr4iq")]
+position = Vector2(-208, 48)
 
 [node name="Key2" parent="LevelScene/Entities" instance=ExtResource("10_8sy27")]
 position = Vector2(-48, 48)
@@ -315,7 +330,7 @@ color_id = ExtResource("11_vyrdb")
 position = Vector2(-144, -48)
 
 [node name="GravitySwitch" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_m5s3y")]
-position = Vector2(-16, 48)
+position = Vector2(-64, 0)
 
 [node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("5_olpbs")]
 position = Vector2(112, 32)
@@ -331,7 +346,7 @@ position = Vector2(-97, -17)
 color_code = ExtResource("15_237pv")
 
 [node name="LockBlock5" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-97, 15)
+position = Vector2(15, 47)
 color_code = ExtResource("15_237pv")
 
 [node name="LockBlock6" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
@@ -343,7 +358,7 @@ position = Vector2(-113, -17)
 color_code = ExtResource("11_vyrdb")
 
 [node name="LockBlock3" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
-position = Vector2(-113, 15)
+position = Vector2(-1, 47)
 color_code = ExtResource("11_vyrdb")
 
 [node name="LockBlock2" parent="LevelScene/Blocks" instance=ExtResource("14_jgmc3")]
@@ -359,10 +374,10 @@ offset_bottom = 152.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("11_7krl3")]
 layout_mode = 1
-offset_left = 20.0
-offset_top = 104.0
-offset_right = 20.0
-offset_bottom = 104.0
+offset_left = -32.0
+offset_top = -48.0
+offset_right = -32.0
+offset_bottom = -48.0
 script = ExtResource("11_6dsmp")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("2_ve6if")]
