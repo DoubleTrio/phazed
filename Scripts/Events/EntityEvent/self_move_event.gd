@@ -127,8 +127,8 @@ func apply(owner: Entity, context: LevelContext):
 class DFSNode:
 	var entity : Entity
 	
-	func _init(entity: Entity):
-		self.entity = entity
+	func _init(ent: Entity):
+		self.entity = ent
 		
 func dfs(start_node: DFSNode, direction: Vector2):
 	var to_move_stack = []

@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=4 uid="uid://dax12ksasl05a"]
+[gd_scene load_steps=18 format=4 uid="uid://cle1erx8qpykd"]
 
-[ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/level_scene.tscn" id="1_y0rjr"]
+[ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_y0rjr"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_jt3q6"]
 [ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="3_ejbje"]
 [ext_resource type="Resource" uid="uid://b8amm4e4q7sia" path="res://Scripts/Events/EntityEvent/Resources/global_fall_event.tres" id="4_2l24n"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="9_5eejn"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="10_gfili"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="11_16pje"]
-[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="12_0whvk"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="12_0whvk"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="13_t3i6s"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="14_7lgph"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="15_wed8p"]
@@ -444,16 +444,15 @@ level_path = "res://Scenes/Menu/level_selection.tscn"
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 112.0
 offset_right = 40.0
-offset_bottom = 152.0
+offset_bottom = 40.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("13_t3i6s")]
 layout_mode = 1
-offset_left = 96.0
-offset_top = -16.0
-offset_right = 96.0
-offset_bottom = -16.0
+offset_left = 121.0
+offset_top = 96.0
+offset_right = 121.0
+offset_bottom = 96.0
 script = ExtResource("14_7lgph")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("15_wed8p")]

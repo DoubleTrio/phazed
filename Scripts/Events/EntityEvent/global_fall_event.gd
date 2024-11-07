@@ -13,8 +13,6 @@ func apply(owner: Entity, context: LevelContext):
 	# Get all the entities that are able to fall and place them inside bins
 	for entity: Entity in LevelScene.instance.entities:
 		if (entity.contains_component("RayCast2D")):
-			var tiles_to_file: int = 0
-			var raycast: RayCast2D = entity.get_component("RayCast2D")
 			var tile_num = entity.position.x / 16
 			
 			

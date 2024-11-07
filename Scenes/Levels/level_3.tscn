@@ -354,9 +354,9 @@ level_path = "res://Scenes/Menu/level_selection.tscn"
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 112.0
+offset_top = 100.0
 offset_right = 40.0
-offset_bottom = 152.0
+offset_bottom = 140.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("12_r18tr")]
 layout_mode = 1
@@ -372,6 +372,8 @@ z_index = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_top = -104.0
+offset_bottom = -104.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)

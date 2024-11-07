@@ -14,7 +14,7 @@ var blocks: Array[Area2D] = [] as Array[Area2D]
 
 @onready var teleport_manager: TeleportManager = $TeleportManager as TeleportManager
 @onready var stats_hud: StatsHud = $"../UI/StatsHud" as StatsHud
-
+@onready var end_screen: EndScreenMenu = $"../UI/EndScreen" as EndScreenMenu
 @onready var active_effects: ActiveEffect = ActiveEffect.new()
 
 @onready var tilemap_layer: TileMapLayer = $TileMapLayer as TileMapLayer

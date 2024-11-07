@@ -236,7 +236,7 @@ texture = ExtResource("6_iics4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_qekjl")
 
-[node name="Level1" type="Node2D"]
+[node name="LevelDebug" type="Node2D"]
 
 [node name="LevelScene" parent="." instance=ExtResource("1_k1ped")]
 position = Vector2(-159, -31)
@@ -252,7 +252,7 @@ tile_set = SubResource("TileSet_q2qr8")
 position = Vector2(159, 31)
 
 [node name="teleporter" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
-position = Vector2(-240, 16)
+position = Vector2(-256, 16)
 
 [node name="teleporter2" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
 position = Vector2(-32, -96)
@@ -267,7 +267,7 @@ position = Vector2(-96, 32)
 position = Vector2(-160, 48)
 
 [node name="teleporter6" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
-position = Vector2(-176, -96)
+position = Vector2(-144, -96)
 
 [node name="teleporter7" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
 position = Vector2(-192, -224)
@@ -288,7 +288,7 @@ position = Vector2(-176, 32)
 position = Vector2(-176, 48)
 
 [node name="Character3" parent="LevelScene/Entities" instance=ExtResource("10_8y41c")]
-position = Vector2(-272, -64)
+position = Vector2(-304, -64)
 
 [node name="Box10" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
 position = Vector2(-192, 0)
@@ -315,7 +315,7 @@ position = Vector2(-208, 32)
 position = Vector2(-208, 48)
 
 [node name="Key2" parent="LevelScene/Entities" instance=ExtResource("11_m55yd")]
-position = Vector2(-48, 48)
+position = Vector2(-256, -64)
 scale = Vector2(0.985402, 1)
 color_id = ExtResource("12_dmrvu")
 
@@ -341,6 +341,14 @@ zoom = Vector2(2.39, 2.5)
 
 [node name="Blocks" type="Node2D" parent="LevelScene"]
 
+[node name="LockBlock8" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+position = Vector2(-1, 47)
+color_code = ExtResource("13_ktcdj")
+
+[node name="LockBlock7" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+position = Vector2(-129, -17)
+color_code = ExtResource("13_ktcdj")
+
 [node name="LockBlock4" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
 position = Vector2(-97, -17)
 color_code = ExtResource("12_dmrvu")
@@ -354,15 +362,15 @@ position = Vector2(-97, -1)
 color_code = ExtResource("12_dmrvu")
 
 [node name="LockBlock" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
-position = Vector2(-113, -17)
+position = Vector2(-145, -17)
 color_code = ExtResource("13_ktcdj")
 
 [node name="LockBlock3" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
-position = Vector2(-1, 47)
+position = Vector2(-113, -17)
 color_code = ExtResource("13_ktcdj")
 
 [node name="LockBlock2" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
-position = Vector2(-113, -1)
+position = Vector2(-145, -1)
 color_code = ExtResource("13_ktcdj")
 
 [node name="UI" type="Control" parent="."]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0fs8hiag2xea"]
+[gd_scene load_steps=4 format=3 uid="uid://b0fs8hiag2xea"]
 
 [ext_resource type="Texture2D" uid="uid://cv0w32rrvq47o" path="res://Assets/Free 2/Items/Boxes/Box1/Idle.png" id="1_fawer"]
 [ext_resource type="Script" path="res://Scripts/Entities/box.gd" id="1_pxfr2"]
-[ext_resource type="AudioStream" uid="uid://ckmd2gpuh513u" path="res://Sounds/box.mp3" id="3_0wanu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8c6r"]
 size = Vector2(16, 16)
@@ -23,6 +22,3 @@ shape = SubResource("RectangleShape2D_q8c6r")
 position = Vector2(8, -8)
 target_position = Vector2(16, 0)
 collide_with_areas = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_0wanu")

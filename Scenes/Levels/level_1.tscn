@@ -327,9 +327,9 @@ position = Vector2(160, 80)
 [node name="Blocks" type="Node2D" parent="LevelScene"]
 
 [node name="lvl_button" parent="." instance=ExtResource("21_w1db4")]
-offset_left = -224.0
+offset_left = -228.0
 offset_top = -128.0
-offset_right = -188.0
+offset_right = -192.0
 offset_bottom = -103.0
 theme_override_font_sizes/font_size = 12
 text = "Back"
@@ -338,16 +338,16 @@ level_path = "res://Scenes/Menu/level_selection.tscn"
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 112.0
+offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 152.0
+offset_bottom = 41.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("17_npars")]
 layout_mode = 1
-offset_left = 96.0
-offset_top = -16.0
-offset_right = 96.0
-offset_bottom = -16.0
+offset_left = 114.0
+offset_top = 98.0
+offset_right = 114.0
+offset_bottom = 98.0
 script = ExtResource("18_ouuhv")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("19_tqylq")]

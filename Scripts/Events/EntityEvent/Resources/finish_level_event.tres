@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://biicgja1cu8be"]
+
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/finish_level_event.gd" id="1_527hu"]
+
+[resource]
+script = ExtResource("1_527hu")
+priority = 0.0
