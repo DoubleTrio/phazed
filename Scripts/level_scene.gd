@@ -54,7 +54,7 @@ func _init():
 	instance = self if instance == null else instance
 	
 func _ready() -> void:
-
+	print("ready")
 
 	_insert_into_priority()
 	LevelEvents.on_teleport.connect(_on_teleport)

@@ -1,51 +1,8 @@
-#extends EntityEvent
-#
-#@export var fall_speed: float = 1.5;
-#
-#func apply(owner: Entity, context: LevelContext):
-#
-	#var gravity: Vector2 = context.gravity_direction
-	#var grid_size = LevelScene.instance.grid_size
-	#var sprite: AnimatedSprite2D
-	#
-	#if (owner != null and owner.contains_component("RayCast2D")):
-#
-		#var raycast = owner.get_component("RayCast2D") as RayCast2D
-#
-		#
-		#if (owner.contains_component("AnimatedSprite2D")):
-			#sprite = owner.get_component("AnimatedSprite2D") as AnimatedSprite2D
-		#
-		#var max_check = 64
-		#var tile_check = 1
-		##
-		### TODO: Check if the player hits any triggers while falling
-		#while (tile_check < 64):
-			#var end_position = gravity * grid_size * tile_check
-			#raycast.target_position = end_position
-			#raycast.force_raycast_update()
-			#if raycast.is_colliding():
-				#break
-			#tile_check += 1	
-		#if (tile_check > 1):
-			##
-			#var total_tiles_fall = tile_check - 1
-			##await level_scene.get_tree().create_timer(0.1).timeout
-			#var tween = owner.create_tween()	
-			#tween.tween_property(owner, "position", owner.position + gravity * grid_size * total_tiles_fall, 1.0/fall_speed).set_trans(Tween.TRANS_SINE)
-			#if (sprite != null):
-				#sprite.play("fall", 2)
-			#await tween.finished
-			#if (sprite != null):
-				#sprite.play("walk", 2)
-
-
 extends EntityEvent
 
 @export var fall_speed: float = 16
 	
 func apply(owner: Entity, context: LevelContext):
-	#print("GALL")
 	await LevelScene.instance.get_tree().create_timer(0.1).timeout
 	var gravity: Vector2 = LevelScene.instance.gravity
 	var columns = {}
@@ -78,11 +35,6 @@ func apply(owner: Entity, context: LevelContext):
 
 	
 	while (max_iterations > 0): 
-
-#
-			#for area: Area2D in x:
-				#tw.tween_property(area, "position", area.position + direction_comp.direction *  level_scene.grid_size, 1.0/animation_speed)
-
 		# Gather the list of entities to check for falling 
 		var fall_check_entity_group: Array[Entity] = []
 		for key in keys:
@@ -92,56 +44,6 @@ func apply(owner: Entity, context: LevelContext):
 			if (entity != null):
 				fall_check_entity_group.append(entity)
 		await wait_all_finished_falling(fall_check_entity_group, context)
-		#for entity: Entity in fall_check_entity_group:
-			#await entity.try_activate_trigger(context)
-		# Boolean to check everything has finished falling
-		#var finished_falling = []
-		#finished_falling.resize(len(fall_check_entity_group))
-		#finished_falling.fill(false)
-		#var all_true = .all(x => x == true)
-		
-		
-
-			
-		#finished_falling.all(func(x): return x)
-		
-
-		#print(finished_falling.all(func(x): return x))
-		
-		
-	
-		#while ()
-				
-				#
-				#var sprite: AnimatedSprite2D = null
-				#
-				#if (entity.contains_component("AnimatedSprite2D")):
-					#sprite = entity.get_component("AnimatedSprite2D") as AnimatedSprite2D
-									#if (sprite != null):
-						#sprite.play("fall", 2)
-						#tw.tween_callback(func(): sprite.play("idle", 2))
-				#var raycast: RayCast2D = entity.get_component("RayCast2D")
-				#var max_check = 64
-				#var tile_check = 1
-				##
-				### TODO: Check if the player hits any triggers while falling
-				#while (tile_check < 64):
-					#var end_position = gravity * LevelScene.instance.grid_size * tile_check
-					#raycast.target_position = end_position
-					#raycast.force_raycast_update()
-					#if raycast.is_colliding():
-						#break
-					#tile_check += 1	
-				#if (tile_check > 1):
-					##
-					#var total_tiles_fall = tile_check - 1
-					#tw.tween_property(entity, "position", entity.position + gravity * LevelScene.instance.grid_size * total_tiles_fall, 1.0/fall_speed)
-					#if (sprite != null):
-						#sprite.play("fall", 2)
-						#tw.tween_callback(func(): sprite.play("idle", 2))
-						#
-		#tw.play()
-		#await tw.finished
 		max_iterations -= 1
 
 func get_sort_method(gravity: Vector2):
@@ -160,13 +62,13 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 	var n: int = len(fall_check_entity_group)
 	while count <= n:
 		count = 0
+		#var useless_tween = true
 		var tw = LevelScene.instance.create_tween()
 		tw.set_trans(Tween.TRANS_LINEAR)
-		tw.set_parallel()		
+		tw.set_parallel()
 		for entity: Entity in fall_check_entity_group:
 			
 			
-
 						
 			var raycast: RayCast2D = entity.get_component("RayCast2D")
 			raycast.position = Vector2(4, -4)
@@ -174,6 +76,7 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 			raycast.target_position = end_position
 			raycast.force_raycast_update()
 			if !raycast.is_colliding():
+				#useless_tween = false
 				tw.tween_property(entity, "position", entity.position + LevelScene.instance.gravity * LevelScene.instance.grid_size, 1.0/fall_speed)
 			else:
 				count += 1
@@ -184,13 +87,16 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 				sprite = entity.get_component("AnimatedSprite2D") as AnimatedSprite2D
 	
 				sprite.play("fall", 2)
+				#useless_tween = false
 				tw.tween_callback(func(): sprite.play("idle", 2))
 						
 				
 		if count >= n:
 			break
-			
-		tw.play()
+		
+		#if useless_tween:
+			#tw.stop()
+		#else:
 		await tw.finished
 		#
 		for entity: Entity in fall_check_entity_group:
