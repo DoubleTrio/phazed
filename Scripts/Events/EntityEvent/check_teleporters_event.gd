@@ -22,5 +22,6 @@ func apply(owner: Entity, context: LevelContext):
 		
 		LevelEvents.on_teleport.emit()
 		teleporter_manager.remove_active_teleporters()
-		teleporter_manager.teleport_noise.play()
+		GameManager.play_sound("woop.mp3")
+		#teleporter_manager.teleport_noise.play()
 		

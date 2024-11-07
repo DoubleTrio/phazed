@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://2nx842w1s7sf"]
+[gd_scene load_steps=17 format=4 uid="uid://orb658a138ak"]
 
-[ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/level_scene.tscn" id="1_rxf2k"]
+[ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_rxf2k"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_g147m"]
 [ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="3_t88i8"]
 [ext_resource type="Resource" uid="uid://bh45cwx6c0tgs" path="res://Scripts/Events/EntityEvent/Resources/check_teleporters_event.tres" id="4_acf4w"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="17_npars"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="18_ouuhv"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="19_tqylq"]
-[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="21_w1db4"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="21_w1db4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dij6l"]
 texture = ExtResource("6_rkhhp")

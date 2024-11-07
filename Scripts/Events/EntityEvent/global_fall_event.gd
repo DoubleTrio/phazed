@@ -3,7 +3,7 @@ extends EntityEvent
 @export var fall_speed: float = 16
 	
 func apply(owner: Entity, context: LevelContext):
-	await LevelScene.instance.get_tree().create_timer(0.1).timeout
+	await GameManager.wait(0.1)
 	var gravity: Vector2 = LevelScene.instance.gravity
 	var columns = {}
 
@@ -66,6 +66,7 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 		var tw = LevelScene.instance.create_tween()
 		tw.set_trans(Tween.TRANS_LINEAR)
 		tw.set_parallel()
+		tw.pause()
 		for entity: Entity in fall_check_entity_group:
 			
 			
@@ -75,20 +76,36 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 			var end_position = raycast.position + LevelScene.instance.gravity * LevelScene.instance.grid_size
 			raycast.target_position = end_position
 			raycast.force_raycast_update()
+
 			if !raycast.is_colliding():
 				#useless_tween = false
 				tw.tween_property(entity, "position", entity.position + LevelScene.instance.gravity * LevelScene.instance.grid_size, 1.0/fall_speed)
+
+			
+			
+			
+				# Refector this later
+				if entity is Box:
+					tw.tween_callback(func():
+						end_position = raycast.position + LevelScene.instance.gravity * LevelScene.instance.grid_size + (LevelScene.instance.gravity * 10)
+						raycast.target_position = end_position
+						raycast.force_raycast_update()
+						if raycast.is_colliding():
+							GameManager.play_sound("box.mp3")
+					)
+				
+				var sprite
+				if (entity.contains_component("AnimatedSprite2D")):
+					sprite = entity.get_component("AnimatedSprite2D") as AnimatedSprite2D
+		
+					sprite.play("fall", 2)
+					
+					#useless_tween = false
+					tw.tween_callback(func(): sprite.play("walk", 2))
 			else:
 				count += 1
 				
-			var sprite
-			
-			if (entity.contains_component("AnimatedSprite2D")):
-				sprite = entity.get_component("AnimatedSprite2D") as AnimatedSprite2D
-	
-				sprite.play("fall", 2)
-				#useless_tween = false
-				tw.tween_callback(func(): sprite.play("idle", 2))
+
 						
 				
 		if count >= n:
@@ -97,7 +114,10 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 		#if useless_tween:
 			#tw.stop()
 		#else:
+		tw.play()
 		await tw.finished
+		
+				#GameManager.play_sound("woop.mp3")
 		#
 		for entity: Entity in fall_check_entity_group:
 			await entity.try_activate_trigger(context)

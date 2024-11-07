@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_yrmw3")
-animation_speed = 4
+animation_speed = 6
 priority = 0.0

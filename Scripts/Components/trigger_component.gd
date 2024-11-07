@@ -20,6 +20,6 @@ func _insert_into_priority():
 func trigger(owner: Entity, context: LevelContext):
 	# TODO: add counter to level context
 	on_trigger.emit()
-	await get_tree().process_frame
+	await GameManager.wait_next_frame()
 	for script: EntityEvent in pq.get_queue():	
 		await script.apply(owner, context)

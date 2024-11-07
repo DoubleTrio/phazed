@@ -186,6 +186,3 @@ func remove_block(block: Area2D):
 	blocks.erase(block)
 	block.queue_free()
 	
-func wait(delay: float):
-	await self.get_tree().create_timer(delay).timeout
-	

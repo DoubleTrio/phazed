@@ -5,8 +5,6 @@ class_name TeleportManager
 # variable to store both teleporters
 var active_teleporters = []
 
-@onready var teleport_noise = $AudioStreamPlayer
-
 func _ready() -> void:
 	for child in self.get_children():
 		if child is Teleporter:

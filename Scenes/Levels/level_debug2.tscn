@@ -1,29 +1,28 @@
-[gd_scene load_steps=24 format=4 uid="uid://bop5kg50jfnnd"]
+[gd_scene load_steps=23 format=4 uid="uid://bq65q8j0bne20"]
 
-[ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_k1ped"]
-[ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_bipqb"]
-[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="3_wud3o"]
-[ext_resource type="Resource" uid="uid://bh45cwx6c0tgs" path="res://Scripts/Events/EntityEvent/Resources/check_teleporters_event.tres" id="4_fkpdq"]
-[ext_resource type="Resource" uid="uid://b8amm4e4q7sia" path="res://Scripts/Events/EntityEvent/Resources/global_fall_event.tres" id="5_vei84"]
-[ext_resource type="Texture2D" uid="uid://3p0e1xpef1bu" path="res://Assets/Free 2/Terrain (16x16).png" id="6_iics4"]
-[ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="7_54vow"]
-[ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="8_tayd0"]
-[ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="9_hxp4d"]
-[ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/Entities/character.tscn" id="10_8y41c"]
-[ext_resource type="PackedScene" uid="uid://cubwp7yihpr51" path="res://Scenes/Entities/key.tscn" id="11_m55yd"]
-[ext_resource type="Resource" uid="uid://bouag52a0gqmj" path="res://Scripts/Resources/orange.tres" id="12_dmrvu"]
-[ext_resource type="Resource" uid="uid://bxf4lni0hem80" path="res://Scripts/Resources/red.tres" id="13_ktcdj"]
-[ext_resource type="PackedScene" uid="uid://bhf80lgxfsvjh" path="res://Scenes/Entities/gravity_switch.tscn" id="14_tkiot"]
-[ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="15_c34ag"]
-[ext_resource type="PackedScene" uid="uid://b4w71q4eudct0" path="res://Scenes/Blocks/lock_block.tscn" id="16_wtx65"]
-[ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="17_nqow2"]
-[ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="18_syvru"]
-[ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="19_y3yxc"]
-[ext_resource type="Script" path="res://Scripts/global.gd" id="20_rrmbg"]
-[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="21_vcptr"]
+[ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_m4ojj"]
+[ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_a0yhy"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="3_kvy2n"]
+[ext_resource type="Resource" uid="uid://bh45cwx6c0tgs" path="res://Scripts/Events/EntityEvent/Resources/check_teleporters_event.tres" id="4_lhek6"]
+[ext_resource type="Resource" uid="uid://b8amm4e4q7sia" path="res://Scripts/Events/EntityEvent/Resources/global_fall_event.tres" id="5_sn63d"]
+[ext_resource type="Texture2D" uid="uid://3p0e1xpef1bu" path="res://Assets/Free 2/Terrain (16x16).png" id="6_qsvg4"]
+[ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="7_l14vb"]
+[ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="8_iuh2o"]
+[ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="9_lsuve"]
+[ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/Entities/character.tscn" id="10_rh2vx"]
+[ext_resource type="PackedScene" uid="uid://cubwp7yihpr51" path="res://Scenes/Entities/key.tscn" id="11_hbrwj"]
+[ext_resource type="Resource" uid="uid://bouag52a0gqmj" path="res://Scripts/Resources/orange.tres" id="12_23hn3"]
+[ext_resource type="Resource" uid="uid://bxf4lni0hem80" path="res://Scripts/Resources/red.tres" id="13_cc563"]
+[ext_resource type="PackedScene" uid="uid://bhf80lgxfsvjh" path="res://Scenes/Entities/gravity_switch.tscn" id="14_kvdoo"]
+[ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="15_ktm45"]
+[ext_resource type="PackedScene" uid="uid://b4w71q4eudct0" path="res://Scenes/Blocks/lock_block.tscn" id="16_k6cd1"]
+[ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="17_1kq3k"]
+[ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="18_3awvj"]
+[ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="19_qghsx"]
+[ext_resource type="Script" path="res://Scripts/global.gd" id="20_axidj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qekjl"]
-texture = ExtResource("6_iics4")
+texture = ExtResource("6_qsvg4")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -238,101 +237,101 @@ sources/0 = SubResource("TileSetAtlasSource_qekjl")
 
 [node name="Level1" type="Node2D"]
 
-[node name="LevelScene" parent="." instance=ExtResource("1_k1ped")]
+[node name="LevelScene" parent="." instance=ExtResource("1_m4ojj")]
 position = Vector2(-159, -31)
-game_stats = ExtResource("2_bipqb")
-on_map_turn_end_scripts = Array[ExtResource("3_wud3o")]([ExtResource("4_fkpdq"), ExtResource("5_vei84")])
+game_stats = ExtResource("2_a0yhy")
+on_map_turn_end_scripts = Array[ExtResource("3_kvy2n")]([ExtResource("4_lhek6"), ExtResource("5_sn63d")])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="LevelScene"]
 position = Vector2(351, 95)
 tile_map_data = PackedByteArray("AADd////AAABAAAAAADe////AAABAAAAAADf////AAABAAAAAADg////AAABAAAAAADh////AAABAAAAAADi////AAABAAAAAADj////AAABAAAAAADk////AAABAAAAAADl////AAABAAAAAADm////AAABAAAAAADn////AAABAAAAAADo////AAABAAAAAADp////AAABAAAAAADq////AAABAAAAAADr////AAABAAAAAADs////AAABAAAAAADt////AAABAAAAAADu////AAABAAAAAADv////AAABAAAAAADw////AAABAAAAAADx////AAABAAAAAADy////AAABAAAAAADz////AAABAAAAAAD0////AAABAAAAAAD1////AAABAAAAAAD2////AAABAAAAAAD3////AAAEAAEAAADc//7/AAACAAEAAADc//3/AAACAAEAAADc//z/AAACAAEAAADc//v/AAACAAEAAADc//r/AAACAAEAAADc//n/AAACAAEAAADc//j/AAACAAEAAADc//f/AAACAAEAAADc//b/AAACAAEAAADc//X/AAACAAEAAADc//T/AAADAAAAAADd//T/AAABAAIAAADe//T/AAABAAIAAADf//T/AAABAAIAAADg//T/AAABAAIAAADh//T/AAABAAIAAADi//T/AAABAAIAAADj//T/AAABAAIAAADk//T/AAABAAIAAADl//T/AAABAAIAAADm//T/AAABAAIAAADn//T/AAABAAIAAADo//T/AAABAAIAAADp//T/AAABAAIAAADq//T/AAABAAIAAADr//T/AAABAAIAAADs//T/AAABAAIAAADt//T/AAABAAIAAADu//T/AAABAAIAAADv//T/AAABAAIAAADw//T/AAABAAIAAADx//T/AAABAAIAAADy//T/AAABAAIAAADz//T/AAABAAIAAAD0//T/AAABAAIAAAD1//T/AAABAAIAAAD2//T/AAABAAIAAAD3//T/AAAEAAEAACDc////AAADAAAAACD3//X/AAAAAAEAAAD3//b/AAAAAAEAAAD3//f/AAAAAAEAAAD3//j/AAAAAAEAAAD3//n/AAAAAAEAAAD3//r/AAAAAAEAAAD3//v/AAAAAAEAAAD3//z/AAAAAAEAAAD3//3/AAAAAAEAAAD3//7/AAAAAAEAAADb//v/AAABAAEAAADb//z/AAABAAEAAADb//3/AAABAAEAAADb//7/AAABAAEAAADb////AAABAAEAAADb/wAAAAABAAEAAADb/wEAAAABAAEAAADc/wEAAAABAAEAAADd/wEAAAABAAEAAADd/wAAAAABAAEAAADc/wAAAAABAAEAAADe/wAAAAABAAEAAADf/wAAAAABAAEAAADg/wAAAAABAAEAAADh/wAAAAABAAEAAADi/wAAAAABAAEAAADj/wAAAAABAAEAAADk/wAAAAABAAEAAADi/wEAAAABAAEAAADh/wEAAAABAAEAAADg/wEAAAABAAEAAADj/wEAAAABAAEAAADk/wEAAAABAAEAAADl/wEAAAABAAEAAADf/wEAAAABAAEAAADe/wEAAAABAAEAAADm/wEAAAABAAEAAADn/wEAAAABAAEAAADo/wEAAAABAAEAAADp/wEAAAABAAEAAADq/wEAAAABAAEAAADp/wAAAAABAAEAAADo/wAAAAABAAEAAADn/wAAAAABAAEAAADm/wAAAAABAAEAAADl/wAAAAABAAEAAADq/wAAAAABAAEAAADr/wAAAAABAAEAAADr/wEAAAABAAEAAADs/wEAAAABAAEAAADt/wEAAAABAAEAAADu/wEAAAABAAEAAADv/wEAAAABAAEAAADw/wEAAAABAAEAAADs/wAAAAABAAEAAADt/wAAAAABAAEAAADx/wEAAAABAAEAAADy/wEAAAABAAEAAADz/wEAAAABAAEAAAD0/wEAAAABAAEAAAD1/wEAAAABAAEAAAD2/wEAAAABAAEAAAD3/wEAAAABAAEAAAD4/wEAAAABAAEAAADu/wAAAAABAAEAAADv/wAAAAABAAEAAADw/wAAAAABAAEAAADx/wAAAAABAAEAAADy/wAAAAABAAEAAADz/wAAAAABAAEAAAD0/wAAAAABAAEAAAD1/wAAAAABAAEAAAD2/wAAAAABAAEAAAD3/wAAAAABAAEAAAD4/wAAAAABAAEAAAD4////AAABAAEAAAD4//7/AAABAAEAAAD4//3/AAABAAEAAAD4//z/AAABAAEAAAD4//v/AAABAAEAAAD4//r/AAABAAEAAAD4//n/AAABAAEAAAD4//j/AAABAAEAAAD4//f/AAABAAEAAAD4//b/AAABAAEAAAD4//X/AAABAAEAAAD4//T/AAABAAEAAAD4//P/AAABAAEAAAD4//L/AAABAAEAAAD3//L/AAABAAEAAAD2//L/AAABAAEAAAD2//P/AAABAAEAAAD3//P/AAABAAEAAAD1//P/AAABAAEAAAD1//L/AAABAAEAAAD0//L/AAABAAEAAADz//L/AAABAAEAAADy//L/AAABAAEAAAD0//P/AAABAAEAAADz//P/AAABAAEAAADy//P/AAABAAEAAADx//P/AAABAAEAAADw//P/AAABAAEAAADv//P/AAABAAEAAADu//P/AAABAAEAAADt//P/AAABAAEAAADs//P/AAABAAEAAADr//P/AAABAAEAAADq//P/AAABAAEAAADp//P/AAABAAEAAADo//P/AAABAAEAAADn//P/AAABAAEAAADm//P/AAABAAEAAADl//P/AAABAAEAAADk//L/AAABAAEAAADj//L/AAABAAEAAADi//L/AAABAAEAAADh//L/AAABAAEAAADg//L/AAABAAEAAADf//P/AAABAAEAAADe//P/AAABAAEAAADd//P/AAABAAEAAADc//P/AAABAAEAAADb//P/AAABAAEAAADb//T/AAABAAEAAADb//X/AAABAAEAAADb//b/AAABAAEAAADb//f/AAABAAEAAADb//j/AAABAAEAAADb//n/AAABAAEAAADb//r/AAABAAEAAADb//L/AAABAAEAAADc//L/AAABAAEAAADd//L/AAABAAEAAADe//L/AAABAAEAAADf//L/AAABAAEAAADi//P/AAABAAEAAADh//P/AAABAAEAAADg//P/AAABAAEAAADj//P/AAABAAEAAADk//P/AAABAAEAAADl//L/AAABAAEAAADm//L/AAABAAEAAADn//L/AAABAAEAAADo//L/AAABAAEAAADp//L/AAABAAEAAADq//L/AAABAAEAAADr//L/AAABAAEAAADs//L/AAABAAEAAADt//L/AAABAAEAAADu//L/AAABAAEAAADv//L/AAABAAEAAADw//L/AAABAAEAAADx//L/AAABAAEAAAA=")
 tile_set = SubResource("TileSet_q2qr8")
 
-[node name="TeleportManager" parent="LevelScene" instance=ExtResource("7_54vow")]
+[node name="TeleportManager" parent="LevelScene" instance=ExtResource("7_l14vb")]
 position = Vector2(159, 31)
 
-[node name="teleporter" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
+[node name="teleporter" parent="LevelScene/TeleportManager" instance=ExtResource("8_iuh2o")]
 position = Vector2(-240, 16)
 
-[node name="teleporter2" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
+[node name="teleporter2" parent="LevelScene/TeleportManager" instance=ExtResource("8_iuh2o")]
 position = Vector2(-32, -96)
 
-[node name="teleporter3" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
+[node name="teleporter3" parent="LevelScene/TeleportManager" instance=ExtResource("8_iuh2o")]
 position = Vector2(-128, 48)
 
-[node name="teleporter4" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
+[node name="teleporter4" parent="LevelScene/TeleportManager" instance=ExtResource("8_iuh2o")]
 position = Vector2(-96, 32)
 
-[node name="teleporter5" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
+[node name="teleporter5" parent="LevelScene/TeleportManager" instance=ExtResource("8_iuh2o")]
 position = Vector2(-160, 48)
 
-[node name="teleporter6" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
+[node name="teleporter6" parent="LevelScene/TeleportManager" instance=ExtResource("8_iuh2o")]
 position = Vector2(-176, -96)
 
-[node name="teleporter7" parent="LevelScene/TeleportManager" instance=ExtResource("8_tayd0")]
+[node name="teleporter7" parent="LevelScene/TeleportManager" instance=ExtResource("8_iuh2o")]
 position = Vector2(-192, -224)
 
 [node name="Entities" type="Node2D" parent="LevelScene"]
 position = Vector2(159, 31)
 
-[node name="Box14" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box14" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-160, 32)
 
-[node name="Box15" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box15" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-160, 48)
 
-[node name="Box16" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box16" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-176, 32)
 
-[node name="Box17" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box17" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-176, 48)
 
-[node name="Character3" parent="LevelScene/Entities" instance=ExtResource("10_8y41c")]
+[node name="Character3" parent="LevelScene/Entities" instance=ExtResource("10_rh2vx")]
 position = Vector2(-272, -64)
 
-[node name="Box10" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box10" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-192, 0)
 
-[node name="Box11" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box11" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-192, 16)
 
-[node name="Box12" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box12" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-208, 0)
 
-[node name="Box13" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box13" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-208, 16)
 
-[node name="Box7" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box7" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-192, 32)
 
-[node name="Box6" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box6" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-192, 48)
 
-[node name="Box8" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box8" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-208, 32)
 
-[node name="Box9" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
+[node name="Box9" parent="LevelScene/Entities" instance=ExtResource("9_lsuve")]
 position = Vector2(-208, 48)
 
-[node name="Key2" parent="LevelScene/Entities" instance=ExtResource("11_m55yd")]
+[node name="Key2" parent="LevelScene/Entities" instance=ExtResource("11_hbrwj")]
 position = Vector2(-48, 48)
 scale = Vector2(0.985402, 1)
-color_id = ExtResource("12_dmrvu")
+color_id = ExtResource("12_23hn3")
 
-[node name="Key" parent="LevelScene/Entities" instance=ExtResource("11_m55yd")]
+[node name="Key" parent="LevelScene/Entities" instance=ExtResource("11_hbrwj")]
 position = Vector2(-32, -32)
 scale = Vector2(0.992674, 1)
-color_id = ExtResource("13_ktcdj")
+color_id = ExtResource("13_cc563")
 
 [node name="Temporary (Remove Later)" type="Node" parent="LevelScene"]
 
-[node name="GravitySwitch2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("14_tkiot")]
+[node name="GravitySwitch2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("14_kvdoo")]
 position = Vector2(-144, -48)
 
-[node name="GravitySwitch" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("14_tkiot")]
-position = Vector2(16, 48)
+[node name="GravitySwitch" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("14_kvdoo")]
+position = Vector2(-64, 0)
 
-[node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_c34ag")]
+[node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_ktm45")]
 position = Vector2(112, 32)
 metadata/_edit_group_ = true
 
@@ -341,29 +340,29 @@ zoom = Vector2(2.39, 2.5)
 
 [node name="Blocks" type="Node2D" parent="LevelScene"]
 
-[node name="LockBlock4" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+[node name="LockBlock4" parent="LevelScene/Blocks" instance=ExtResource("16_k6cd1")]
 position = Vector2(-97, -17)
-color_code = ExtResource("12_dmrvu")
+color_code = ExtResource("12_23hn3")
 
-[node name="LockBlock5" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+[node name="LockBlock5" parent="LevelScene/Blocks" instance=ExtResource("16_k6cd1")]
 position = Vector2(15, 47)
-color_code = ExtResource("12_dmrvu")
+color_code = ExtResource("12_23hn3")
 
-[node name="LockBlock6" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+[node name="LockBlock6" parent="LevelScene/Blocks" instance=ExtResource("16_k6cd1")]
 position = Vector2(-97, -1)
-color_code = ExtResource("12_dmrvu")
+color_code = ExtResource("12_23hn3")
 
-[node name="LockBlock" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+[node name="LockBlock" parent="LevelScene/Blocks" instance=ExtResource("16_k6cd1")]
 position = Vector2(-113, -17)
-color_code = ExtResource("13_ktcdj")
+color_code = ExtResource("13_cc563")
 
-[node name="LockBlock3" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+[node name="LockBlock3" parent="LevelScene/Blocks" instance=ExtResource("16_k6cd1")]
 position = Vector2(-1, 47)
-color_code = ExtResource("13_ktcdj")
+color_code = ExtResource("13_cc563")
 
-[node name="LockBlock2" parent="LevelScene/Blocks" instance=ExtResource("16_wtx65")]
+[node name="LockBlock2" parent="LevelScene/Blocks" instance=ExtResource("16_k6cd1")]
 position = Vector2(-113, -1)
-color_code = ExtResource("13_ktcdj")
+color_code = ExtResource("13_cc563")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -372,15 +371,15 @@ offset_top = 112.0
 offset_right = 40.0
 offset_bottom = 152.0
 
-[node name="StatsHud" parent="UI" instance=ExtResource("17_nqow2")]
+[node name="StatsHud" parent="UI" instance=ExtResource("17_1kq3k")]
 layout_mode = 1
 offset_left = -32.0
 offset_top = -48.0
 offset_right = -32.0
 offset_bottom = -48.0
-script = ExtResource("18_syvru")
+script = ExtResource("18_3awvj")
 
-[node name="EndScreen" parent="UI" instance=ExtResource("19_y3yxc")]
+[node name="EndScreen" parent="UI" instance=ExtResource("19_qghsx")]
 visible = false
 z_index = 1
 anchors_preset = 0
@@ -392,13 +391,4 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Global" type="Node2D" parent="."]
 position = Vector2(-288, 160)
-script = ExtResource("20_rrmbg")
-
-[node name="lvl_button" parent="." instance=ExtResource("21_vcptr")]
-offset_left = -396.0
-offset_top = -156.0
-offset_right = -360.0
-offset_bottom = -131.0
-theme_override_font_sizes/font_size = 12
-text = "Back"
-level_path = "res://Scenes/Menu/level_selection.tscn"
+script = ExtResource("20_axidj")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=18 format=4 uid="uid://brogtr4kygq6j"]
+[gd_scene load_steps=18 format=4 uid="uid://dxugw65pkmqls"]
 
-[ext_resource type="PackedScene" uid="uid://bgubicqi18rno" path="res://Scenes/level_scene.tscn" id="1_mnqdn"]
+[ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_mnqdn"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_dyq6q"]
 [ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="3_nbucf"]
 [ext_resource type="Resource" uid="uid://b8amm4e4q7sia" path="res://Scripts/Events/EntityEvent/Resources/global_fall_event.tres" id="4_ob3b2"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="9_jo556"]
 [ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="9_k3vi4"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="10_71dap"]
-[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="11_h8xm4"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="11_h8xm4"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="12_r18tr"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="13_6sfpb"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="14_wj8yc"]
