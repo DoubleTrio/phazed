@@ -26,6 +26,6 @@ func get_levels(path) -> void:
 
 func create_level_btn(lvl_path:String, lvl_name:String) -> void:
 	var btn = LEVEL_BTN.instantiate()
-	btn.text = lvl_name.trim_suffix('.tscn')
+	btn.text = lvl_name.trim_suffix('.tscn').replace("_","")
 	btn.level_path = lvl_path
 	grid.add_child(btn)
