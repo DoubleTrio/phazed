@@ -1,8 +1,7 @@
 extends EntityEvent
 
 func apply(owner: Entity, context: LevelContext):
-	print("TODO for KEY: Change the collider parameter so that only player can collect?")
-	if (owner.contains_component("IDComponent")):
+	if (owner.contains_component("IDComponent") and context.collider is Character):
 		LevelScene.instance.remove_entity(owner)
 		var id_component: IDComponent = owner.get_component("IDComponent") as IDComponent
 		

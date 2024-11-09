@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://begycqrrx1ucx"]
+[gd_scene load_steps=35 format=3 uid="uid://begycqrrx1ucx"]
 
 [ext_resource type="Texture2D" uid="uid://b532xv1iafjkp" path="res://Assets/Free 2/Main Characters/Ninja Frog/Idle (32x32).png" id="1_6xe3l"]
 [ext_resource type="Script" path="res://Scripts/Entities/character.gd" id="1_wyx3c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="2_vytan"]
 [ext_resource type="Texture2D" uid="uid://p10qobtmch7b" path="res://Assets/Free 2/Main Characters/Ninja Frog/Run (32x32).png" id="3_8n4ii"]
 [ext_resource type="Resource" uid="uid://byxak11313ag6" path="res://Scripts/Events/EntityEvent/Resources/self_move_event.tres" id="3_f264u"]
+[ext_resource type="Resource" uid="uid://cx2m4eudvfxx8" path="res://Scripts/Events/EntityEvent/Resources/apply_trigger.tres" id="4_ha6ro"]
 [ext_resource type="Script" path="res://Scripts/Components/direction_component.gd" id="6_131hh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_14xw2"]
@@ -198,8 +199,11 @@ animations = [{
 radius = 4.0
 
 [node name="Character" type="Area2D"]
+collision_layer = 2
+collision_mask = 21
 script = ExtResource("1_wyx3c")
 on_action_scripts = Array[ExtResource("2_vytan")]([ExtResource("3_f264u")])
+on_map_turn_end_scripts = Array[ExtResource("2_vytan")]([ExtResource("4_ha6ro")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(8, -8)
@@ -215,6 +219,7 @@ shape = SubResource("CircleShape2D_uxpi2")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(8, -8)
 target_position = Vector2(0, 16)
+collision_mask = 9
 collide_with_areas = true
 
 [node name="DirectionComponent" type="Node" parent="."]

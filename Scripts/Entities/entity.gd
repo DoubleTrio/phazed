@@ -22,14 +22,15 @@ signal enter_detect_area(detect_area: DetectAreaComponent)
 
 var last_collided: DetectAreaComponent
 
-func try_activate_trigger(context):
+func try_activate_trigger(context: LevelContext):
 	if has_recently_collided():
 		var area: DetectAreaComponent = self.last_collided
-		last_collided = null
-		#print(area.entity)
+		last_collided = null		
 		if (area.entity.contains_component("TriggerComponent")):
+			context.collider = self
 			var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
 			await trigger_component.trigger(area.entity, context)
+			context.collider = null
 
 
 func has_recently_collided():

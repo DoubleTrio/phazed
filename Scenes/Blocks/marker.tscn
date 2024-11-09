@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgbpitksrb332"]
+
+[ext_resource type="Texture2D" uid="uid://nebxyjmqh6ib" path="res://Assets/Free 2/Traps/Saw/Chain.png" id="1_f44ue"]
+
+[node name="Marker" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
+texture = ExtResource("1_f44ue")
