@@ -18,34 +18,45 @@ signal finished_map_turn_end()
 
 signal enter_detect_area(detect_area: DetectAreaComponent)
 
+signal exit_detect_area(detect_area: DetectAreaComponent)
+
 @onready var _components_dict = {} 
 
-var last_collided: DetectAreaComponent
+@onready var DetectAreasDict = {} 
 
-func try_activate_trigger(context: LevelContext):
-	if has_recently_collided():
-		var area: DetectAreaComponent = self.last_collided
-		last_collided = null		
-		if (area.entity.contains_component("TriggerComponent")):
-			context.collider = self
-			var trigger_component: TriggerComponent = area.entity.get_component("TriggerComponent") as TriggerComponent
-			await trigger_component.trigger(area.entity, context)
-			context.collider = null
-
-
-func has_recently_collided():
-	return last_collided != null
+#var last_collided = null
+func try_activate_triggers(context: LevelContext):
+	#if has_recently_collided():
+		#var area: DetectAreaComponent = self.last_collided
+	var pq: DS.PriorityQ = DS.PriorityQ.new([])
+	
+	for key: DetectAreaComponent in DetectAreasDict.keys():
+	
+		if (key.entity.contains_component("TriggerComponent")):
+			var trigger_comp: TriggerComponent = key.entity.get_component("TriggerComponent")
+			pq.insert(trigger_comp.trigger_priority, key.entity)
+	
+	context.collider = self
+	for entity: Entity in pq.get_queue():
+		#await script.apply(self, level_context)
+		var trigger_comp: TriggerComponent = entity.get_component("TriggerComponent")
+		await trigger_comp.trigger(entity, context)
+	context.collider = null
 
 #func triggereD_c
 func _ready():
 	_init_components_dict()
 	_insert_into_priority()
 	enter_detect_area.connect(_enter_detect_area)
+	exit_detect_area.connect(_exit_detect_area)
 
 
 func _enter_detect_area(detect_area: DetectAreaComponent):
-	last_collided = detect_area
-
+	DetectAreasDict[detect_area] = Time.get_ticks_msec()
+	
+func _exit_detect_area(detect_area: DetectAreaComponent):
+	DetectAreasDict.erase(detect_area)
+	
 func _init_components_dict():
 	for component in get_children():
 		_components_dict[component.name] = component

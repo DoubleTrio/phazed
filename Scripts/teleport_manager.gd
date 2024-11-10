@@ -11,6 +11,7 @@ func _ready() -> void:
 			child.click_component.click.connect(_on_teleporter_click)
 
 func _on_teleporter_click(tp: Area2D) -> void:
+	LevelScene.instance.level_start.emit()
 	var teleporter: Teleporter = tp
 	
 	if teleporter.is_active():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://orb658a138ak"]
+[gd_scene load_steps=18 format=4 uid="uid://orb658a138ak"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_rxf2k"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_g147m"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="8_e325s"]
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/Entities/character.tscn" id="10_xtdi8"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="15_ooja0"]
+[ext_resource type="PackedScene" uid="uid://byt6xsgykegvf" path="res://Scenes/Menu/control_panel.tscn" id="15_shvjg"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="17_npars"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="18_ouuhv"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="19_tqylq"]
@@ -343,6 +344,7 @@ offset_right = 40.0
 offset_bottom = 41.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("17_npars")]
+visible = false
 layout_mode = 1
 offset_left = 114.0
 offset_top = 98.0
@@ -359,3 +361,7 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
+
+[node name="ControlPanel" parent="UI" instance=ExtResource("15_shvjg")]
+offset_top = 138.0
+offset_bottom = 138.0

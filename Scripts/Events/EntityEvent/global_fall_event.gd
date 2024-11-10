@@ -118,4 +118,4 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 				#GameManager.play_sound("woop.mp3")
 		#
 		for entity: Entity in fall_check_entity_group:
-			await entity.try_activate_trigger(context)
+			await entity.try_activate_triggers(context)

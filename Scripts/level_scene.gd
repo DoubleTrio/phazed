@@ -27,6 +27,15 @@ var blocks: Array[Area2D] = [] as Array[Area2D]
 @export var on_map_turn_start_scripts: Array[EntityEvent] = []
 @export var on_map_turn_end_scripts: Array[EntityEvent] = []
 
+var paused = false:
+	set(value):
+		if value:
+			Engine.time_scale = 0
+		else:
+			Engine.time_scale = 1
+			
+		paused = value
+
 @onready var grid_size = tilemap_layer.tile_set.tile_size.x
 
 var times_teleported = 0
@@ -48,6 +57,9 @@ signal end_map_turn_finished()
 
 signal level_complete()
 
+signal level_start()
+
+
 
 var timer = Timer.new()
 
@@ -59,16 +71,20 @@ func _init():
 func _ready() -> void:
 	_insert_into_priority()
 	LevelEvents.on_teleport.connect(_on_teleport)
-	add_child(timer)
-	timer.set_autostart(true)
-	timer.set_wait_time(0.3)
-	timer.connect("timeout", tick)
-	timer.start()
+
 	for children: Entity in ent.get_children():
 		entities.append(children)
 
 	for children: Area2D in bl.get_children():
 		blocks.append(children)
+	await level_start
+	add_child(timer)
+		
+	timer.set_autostart(true)
+	timer.set_wait_time(0.3)
+	timer.connect("timeout", tick)
+	timer.start()
+		
 	#print(bl)
 
 func _insert_into_priority():
@@ -187,3 +203,15 @@ func remove_block(block: Area2D):
 	blocks.erase(block)
 	block.queue_free()
 	
+
+func _input(event):
+	if event.is_pressed():
+		level_start.emit()
+	if Input.is_action_just_pressed("pause"):
+		paused = !paused
+	else:
+		if !paused:
+			if Input.is_action_pressed("speed_up"):
+				Engine.time_scale = 2.2
+			else:
+				Engine.time_scale = 1

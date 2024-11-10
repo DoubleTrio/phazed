@@ -130,3 +130,4 @@ entity = NodePath("..")
 script = ExtResource("6_katcj")
 trigger_scripts = Array[ExtResource("7_bcu6e")]([ExtResource("8_katxu")])
 count = 1
+trigger_priority = 5

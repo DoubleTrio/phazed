@@ -8,6 +8,8 @@ class_name TriggerComponent
 # The maximum amount of times the event can be trigger on one map turn
 @export var count: int = -1
 
+@export var trigger_priority: int = 0
+
 signal on_trigger()
 
 func _ready() -> void:

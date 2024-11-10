@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ctniuv1lea8tf"]
+[gd_scene load_steps=19 format=4 uid="uid://ctniuv1lea8tf"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_w05qd"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_uvs80"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="13_xrp7c"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="14_y0g8u"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="15_56tgx"]
+[ext_resource type="PackedScene" uid="uid://byt6xsgykegvf" path="res://Scenes/Menu/control_panel.tscn" id="16_jdq81"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_onww4"]
 texture = ExtResource("6_vk052")
@@ -366,15 +367,18 @@ level_path = "res://Scenes/Menu/level_selection.tscn"
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 37.0
+offset_bottom = 38.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("13_xrp7c")]
+visible = false
 layout_mode = 1
-offset_left = 115.0
-offset_top = 101.0
-offset_right = 115.0
-offset_bottom = 101.0
+offset_left = 121.0
+offset_top = 100.0
+offset_right = 121.0
+offset_bottom = 100.0
 script = ExtResource("14_y0g8u")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("15_56tgx")]
@@ -386,3 +390,7 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
+
+[node name="ControlPanel" parent="UI" instance=ExtResource("16_jdq81")]
+offset_top = 140.0
+offset_bottom = 140.0
