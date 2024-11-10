@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="18_syvru"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="19_y3yxc"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="20_rrmbg"]
-[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="21_vcptr"]
+[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="21_vcptr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qekjl"]
 texture = ExtResource("6_iics4")

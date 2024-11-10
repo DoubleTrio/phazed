@@ -4,6 +4,7 @@ extends EntityEvent
 	
 func apply(owner: Entity, context: LevelContext):
 	await GameManager.wait(0.1)
+	
 	var gravity: Vector2 = LevelScene.instance.gravity
 	var columns = {}
 
