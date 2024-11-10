@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ColorID" load_steps=2 format=3 uid="uid://14elp133yh5l"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/color_id.gd" id="1_kdilf"]
+
+[resource]
+script = ExtResource("1_kdilf")
+id = 2
+color = Color(0, 1, 0, 1)
