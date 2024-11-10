@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce12kn882p77"]
+
+[ext_resource type="Script" path="res://Scripts/Entities/marker_teleporter.gd" id="1_yufv0"]
+[ext_resource type="Script" path="res://Scripts/Components/trigger_component.gd" id="3_k11bf"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="4_lkpkc"]
+[ext_resource type="Resource" uid="uid://dxt1yll7xxqyi" path="res://Scripts/Events/EntityEvent/Resources/teleport_to_marker_event.tres" id="4_sqvxf"]
+[ext_resource type="Texture2D" uid="uid://cfydhqod1loc4" path="res://Assets/Free 2/Traps/Fire/Off.png" id="5_gd3ao"]
+[ext_resource type="Script" path="res://Scripts/Components/detect_area_component.gd" id="6_4ehhr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_di2af"]
+size = Vector2(16, 16)
+
+[node name="MarkerTeleporter" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_yufv0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -16)
+texture = ExtResource("5_gd3ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_di2af")
+
+[node name="DetectAreaComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
+script = ExtResource("6_4ehhr")
+entity = NodePath("..")
+
+[node name="TriggerComponent" type="Node" parent="."]
+script = ExtResource("3_k11bf")
+trigger_scripts = Array[ExtResource("4_lkpkc")]([ExtResource("4_sqvxf")])

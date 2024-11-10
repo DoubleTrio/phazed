@@ -7,6 +7,8 @@
 size = Vector2(16, 16)
 
 [node name="Box" type="Area2D" groups=["Pushable"]]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_pxfr2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,4 +23,5 @@ shape = SubResource("RectangleShape2D_q8c6r")
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(8, -8)
 target_position = Vector2(16, 0)
+collision_mask = 27
 collide_with_areas = true

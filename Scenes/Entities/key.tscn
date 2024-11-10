@@ -8,12 +8,13 @@
 [ext_resource type="Script" path="res://Scripts/Components/id_component.gd" id="5_alcft"]
 [ext_resource type="Resource" uid="uid://oqgullu06btl" path="res://Scripts/Events/EntityEvent/Resources/collect_key_event.tres" id="6_tmqf7"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v6h7d"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kpo6"]
+size = Vector2(16, 16)
 
-[node name="Key" type="Area2D"]
+[node name="Key" type="Area2D" groups=["Pushable"]]
 z_index = -1
-collision_layer = 2
+collision_layer = 18
+collision_mask = 3
 script = ExtResource("1_jklu4")
 
 [node name="DetectAreaComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
@@ -26,7 +27,7 @@ texture = ExtResource("3_sr2jv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -8)
-shape = SubResource("CircleShape2D_v6h7d")
+shape = SubResource("RectangleShape2D_0kpo6")
 
 [node name="TriggerComponent" type="Node" parent="."]
 script = ExtResource("4_6ilpx")
@@ -34,3 +35,9 @@ trigger_scripts = Array[ExtResource("5_7cgqk")]([ExtResource("6_tmqf7")])
 
 [node name="IDComponent" type="Node" parent="."]
 script = ExtResource("5_alcft")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, -8)
+target_position = Vector2(16, 0)
+collision_mask = 25
+collide_with_areas = true

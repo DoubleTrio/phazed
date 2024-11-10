@@ -275,6 +275,12 @@ position = Vector2(-192, -224)
 [node name="Entities" type="Node2D" parent="LevelScene"]
 position = Vector2(159, 31)
 
+[node name="GravitySwitch2" parent="LevelScene/Entities" instance=ExtResource("14_tkiot")]
+position = Vector2(-144, -48)
+
+[node name="GravitySwitch" parent="LevelScene/Entities" instance=ExtResource("14_tkiot")]
+position = Vector2(16, 48)
+
 [node name="Box14" parent="LevelScene/Entities" instance=ExtResource("9_hxp4d")]
 position = Vector2(-160, 32)
 
@@ -315,7 +321,7 @@ position = Vector2(-208, 32)
 position = Vector2(-208, 48)
 
 [node name="Key2" parent="LevelScene/Entities" instance=ExtResource("11_m55yd")]
-position = Vector2(-256, -64)
+position = Vector2(-288, -64)
 scale = Vector2(0.985402, 1)
 color_id = ExtResource("12_dmrvu")
 
@@ -324,13 +330,11 @@ position = Vector2(-32, -32)
 scale = Vector2(0.992674, 1)
 color_id = ExtResource("13_ktcdj")
 
+[node name="Battery" parent="LevelScene/Entities" instance=ExtResource("15_c34ag")]
+position = Vector2(-256, -64)
+scale = Vector2(0.985402, 1)
+
 [node name="Temporary (Remove Later)" type="Node" parent="LevelScene"]
-
-[node name="GravitySwitch2" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("14_tkiot")]
-position = Vector2(-144, -48)
-
-[node name="GravitySwitch" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("14_tkiot")]
-position = Vector2(16, 48)
 
 [node name="Battery" parent="LevelScene/Temporary (Remove Later)" instance=ExtResource("15_c34ag")]
 position = Vector2(112, 32)
@@ -389,11 +393,14 @@ offset_bottom = -48.0
 script = ExtResource("18_syvru")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("19_y3yxc")]
-visible = false
 z_index = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = -160.0
+offset_top = -144.0
+offset_right = -160.0
+offset_bottom = -144.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)

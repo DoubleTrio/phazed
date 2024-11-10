@@ -100,7 +100,7 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 					sprite.play("fall", 2)
 					
 					#useless_tween = false
-					tw.tween_callback(func(): sprite.play("walk", 2))
+					tw.tween_callback(func(): sprite.play("idle", 1))
 			else:
 				count += 1
 				

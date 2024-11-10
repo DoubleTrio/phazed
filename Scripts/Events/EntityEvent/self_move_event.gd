@@ -35,7 +35,7 @@ func apply(owner: Entity, context: LevelContext):
 			should_move = true
 			direction_comp.flip_direction()
 		else:
-			sprite.play("idle", 2)
+			sprite.play("idle", 1)
 			
 		if should_move:
 			sprite.play("walk", 2)
@@ -50,6 +50,7 @@ func apply(owner: Entity, context: LevelContext):
 			tw.play()
 			await tw.finished
 					#
+			#print(owner)
 			for entity: Entity in entities:
 				await entity.try_activate_trigger(context)
 				

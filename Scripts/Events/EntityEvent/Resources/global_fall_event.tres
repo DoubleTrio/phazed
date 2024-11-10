@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_14vlw")
-fall_speed = 15.0
+fall_speed = 20.0
 priority = 5.0

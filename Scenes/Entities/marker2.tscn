@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://v2ufwmy85obw"]
+
+[ext_resource type="Texture2D" uid="uid://da2jhdrr83h0u" path="res://Assets/compass_north.png" id="2_ppk3l"]
+[ext_resource type="Script" path="res://Scripts/Components/detect_area_component.gd" id="6_csbjn"]
+[ext_resource type="Script" path="res://Scripts/Components/trigger_component.gd" id="7_1rdbk"]
+[ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="8_sjkq4"]
+[ext_resource type="Resource" uid="uid://dkyvana3gjmdv" path="res://Scripts/Events/EntityEvent/Resources/flip_gravity_event.tres" id="9_wq5p2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3p7nt"]
+size = Vector2(12, 34)
+
+[node name="Marker2" type="Area2D"]
+z_index = -1
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_ppk3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, -6)
+shape = SubResource("RectangleShape2D_3p7nt")
+
+[node name="DetectAreaComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
+script = ExtResource("6_csbjn")
+entity = NodePath("..")
+
+[node name="TriggerComponent" type="Node" parent="."]
+script = ExtResource("7_1rdbk")
+trigger_scripts = Array[ExtResource("8_sjkq4")]([ExtResource("9_wq5p2")])

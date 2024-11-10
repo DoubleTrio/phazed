@@ -1,44 +1,44 @@
-[gd_scene load_steps=10 format=3 uid="uid://pqboxejsdn6r"]
+[gd_scene load_steps=9 format=3 uid="uid://pqboxejsdn6r"]
 
 [ext_resource type="Script" path="res://Scripts/Entities/battery.gd" id="1_6ivd0"]
-[ext_resource type="Texture2D" uid="uid://bk2mia8lgcin0" path="res://Assets/battery.jpg" id="1_q0pcf"]
+[ext_resource type="Texture2D" uid="uid://c5fevnhjxd7gj" path="res://Assets/battery.png" id="2_slbt4"]
 [ext_resource type="Script" path="res://Scripts/Components/trigger_component.gd" id="3_onuwl"]
 [ext_resource type="Script" path="res://Scripts/Events/EntityEvent/entity_event.gd" id="4_7or5a"]
 [ext_resource type="Script" path="res://Scripts/Components/detect_area_component.gd" id="4_wjm77"]
 [ext_resource type="Resource" uid="uid://biicgja1cu8be" path="res://Scripts/Events/EntityEvent/Resources/finish_level_event.tres" id="5_cbe5u"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcorp"]
-atlas = ExtResource("1_q0pcf")
-region = Rect2(0, 0, 1000, 1000)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gu7vu"]
+size = Vector2(16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1prrm"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_anx60"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bcorp")
+"texture": ExtResource("2_slbt4")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_stiwh"]
-size = Vector2(997, 1004)
-
 [node name="Battery" type="Area2D" groups=["Pushable"]]
-scale = Vector2(0.01, 0.01)
-collision_layer = 2
+collision_layer = 18
+collision_mask = 3
 script = ExtResource("1_6ivd0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(800, -800)
-sprite_frames = SubResource("SpriteFrames_1prrm")
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, -8)
+target_position = Vector2(16, 0)
+collision_mask = 25
+collide_with_areas = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(800, -800)
-shape = SubResource("RectangleShape2D_stiwh")
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_gu7vu")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -8)
+sprite_frames = SubResource("SpriteFrames_anx60")
 
 [node name="TriggerComponent" type="Node" parent="."]
 script = ExtResource("3_onuwl")
@@ -47,5 +47,3 @@ trigger_scripts = Array[ExtResource("4_7or5a")]([ExtResource("5_cbe5u")])
 [node name="DetectAreaComponent" type="Node" parent="." node_paths=PackedStringArray("entity")]
 script = ExtResource("4_wjm77")
 entity = NodePath("..")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

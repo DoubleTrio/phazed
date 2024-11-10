@@ -46,6 +46,9 @@ signal after_actions_finished()
 signal start_map_turn_finished()
 signal end_map_turn_finished()
 
+signal level_complete()
+
+
 var timer = Timer.new()
 
 
@@ -54,8 +57,6 @@ func _init():
 	instance = self if instance == null else instance
 	
 func _ready() -> void:
-	print("ready")
-
 	_insert_into_priority()
 	LevelEvents.on_teleport.connect(_on_teleport)
 	add_child(timer)
@@ -86,6 +87,7 @@ func _on_teleport():
 	times_teleported += 1
 	game_stats.total_times_teleported += 1
 	stats_hud.set_teleporter_label("Times Teleported: " + str(times_teleported))
+	end_screen.update_count(times_teleported)
 
 func set_gravity(direction: Vector2):
 	gravity = direction
@@ -96,7 +98,6 @@ func flip_gravity():
 func tick():
 	timer.paused = true
 	var context: LevelContext = LevelContext.new()
-	
 	await wait_all_map_starts(context)
 	#print("All map starts okay")
 	await wait_all_before_actions(context)
