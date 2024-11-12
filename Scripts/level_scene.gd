@@ -47,7 +47,6 @@ var gravity: Vector2 = Vector2.DOWN :
 		gravity = value
 		LevelEvents.on_gravity_changed.emit(value)
 
-
 #LevelEvents.on_gravity_changed.connect(_gravity_change)
 
 signal before_actions_finished()
@@ -61,12 +60,7 @@ signal level_complete()
 
 signal level_start()
 
-
-
-
 var timer = Timer.new()
-
-
 
 func _init():
 	instance = self if instance == null else instance

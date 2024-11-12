@@ -24,7 +24,6 @@ offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
-tooltip_text = "TestTip"
 theme_override_constants/separation = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -34,14 +33,20 @@ theme_override_constants/separation = 100
 
 [node name="RestartButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Restart level"
+focus_mode = 0
 texture_normal = ExtResource("1_ff2ev")
 
 [node name="PauseButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Pause game"
+focus_mode = 0
 texture_normal = ExtResource("2_gq7aa")
 
 [node name="SpeedUpButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Speed up"
+focus_mode = 0
 texture_normal = ExtResource("1_3keth")
 
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
