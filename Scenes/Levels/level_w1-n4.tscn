@@ -313,10 +313,10 @@ zoom = Vector2(2.5, 2.5)
 [node name="Entities" type="Node2D" parent="LevelScene"]
 
 [node name="Character" parent="LevelScene/Entities" instance=ExtResource("7_ahx72")]
-position = Vector2(-128, 64)
+position = Vector2(-96, 64)
 
 [node name="Box" parent="LevelScene/Entities" instance=ExtResource("8_qsfed")]
-position = Vector2(-128, 48)
+position = Vector2(-96, 48)
 
 [node name="Box2" parent="LevelScene/Entities" instance=ExtResource("8_qsfed")]
 position = Vector2(-96, -32)

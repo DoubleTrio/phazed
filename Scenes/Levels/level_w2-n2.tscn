@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://begycqrrx1ucx" path="res://Scenes/Entities/character.tscn" id="7_0yr50"]
 [ext_resource type="PackedScene" uid="uid://cubwp7yihpr51" path="res://Scenes/Entities/key.tscn" id="8_jxi2o"]
 [ext_resource type="Resource" uid="uid://bouag52a0gqmj" path="res://Scripts/Resources/orange.tres" id="9_31koy"]
-[ext_resource type="Resource" uid="uid://bxf4lni0hem80" path="res://Scripts/Resources/red.tres" id="10_jhq0e"]
+[ext_resource type="Resource" uid="uid://14elp133yh5l" path="res://Scripts/Resources/green.tres" id="10_otrwg"]
 [ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="11_ny8bb"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="12_uhmct"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="13_8usew"]
@@ -324,7 +324,7 @@ color_id = ExtResource("9_31koy")
 
 [node name="Key2" parent="LevelScene/Entities" instance=ExtResource("8_jxi2o")]
 position = Vector2(48, -16)
-color_id = ExtResource("10_jhq0e")
+color_id = ExtResource("10_otrwg")
 
 [node name="TeleportManager" parent="LevelScene" instance=ExtResource("11_ny8bb")]
 
@@ -352,11 +352,11 @@ color_code = ExtResource("9_31koy")
 
 [node name="LockBlock3" parent="LevelScene/Blocks" instance=ExtResource("14_8mmvo")]
 position = Vector2(16, 48)
-color_code = ExtResource("10_jhq0e")
+color_code = ExtResource("10_otrwg")
 
 [node name="LockBlock4" parent="LevelScene/Blocks" instance=ExtResource("14_8mmvo")]
 position = Vector2(16, 32)
-color_code = ExtResource("10_jhq0e")
+color_code = ExtResource("10_otrwg")
 
 [node name="lvl_button" parent="." instance=ExtResource("15_nmken")]
 offset_left = -228.0

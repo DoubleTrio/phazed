@@ -22,6 +22,7 @@ func get_levels(path) -> void:
 
 func create_level_btn(lvl_path:String, file_name:String, min_size:Vector2) -> void:
 	var btn = LEVEL_BTN.instantiate()
+
 	btn.text = "Level "+file_name.split("_",true,1)[1].trim_suffix(".tscn")
 	btn.level_path = lvl_path
 	btn.set_custom_minimum_size(min_size)

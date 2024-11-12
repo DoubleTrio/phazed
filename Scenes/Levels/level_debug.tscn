@@ -393,6 +393,7 @@ offset_bottom = -48.0
 script = ExtResource("18_syvru")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("19_y3yxc")]
+visible = false
 z_index = 1
 anchors_preset = 0
 anchor_right = 0.0
