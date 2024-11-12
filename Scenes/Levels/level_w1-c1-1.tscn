@@ -296,7 +296,7 @@ texture = ExtResource("6_clbc1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_en6au")
 
-[node name="Level6" type="Node2D"]
+[node name="Level7" type="Node2D"]
 
 [node name="LevelScene" parent="." instance=ExtResource("1_gx7ha")]
 game_stats = ExtResource("2_iasig")

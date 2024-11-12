@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bonur7f5ivfpe"]
+[gd_scene load_steps=21 format=4 uid="uid://k1lsl5l8qnwa"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_gvgxn"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_6fv4r"]
@@ -361,9 +361,9 @@ level_path = "res://Scenes/Menu/level_selection.tscn"
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 1.0
+offset_top = 16.0
 offset_right = 40.0
-offset_bottom = 41.0
+offset_bottom = 56.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("15_8i5si")]
 layout_mode = 1
@@ -382,3 +382,7 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
+
+[node name="ControlPanel" parent="UI" instance=ExtResource("18_qddgm")]
+offset_top = 124.0
+offset_bottom = 124.0

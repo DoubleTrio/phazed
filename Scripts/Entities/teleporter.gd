@@ -21,7 +21,7 @@ func has_entity() -> bool:
 
 func _ready():
 	super._ready()
-	sprite.modulate = inactive_color
+	sprite.modulate = inactive_color 
 	
 func _enter_entity(entity: Entity):
 	current_entity = entity

@@ -15,7 +15,8 @@ size = Vector2(12, 12)
 
 [node name="GravitySwitch" type="Area2D"]
 z_index = -1
-collision_layer = 2
+collision_layer = 0
+collision_mask = 30
 script = ExtResource("1_prlu2")
 north_texture = ExtResource("1_slv0n")
 east_texture = ExtResource("3_ym07u")

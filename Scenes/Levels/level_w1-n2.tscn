@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://w64q4du1degh"]
+[gd_scene load_steps=18 format=4 uid="uid://w64q4du1degh"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_hdhv2"]
 [ext_resource type="Texture2D" uid="uid://3p0e1xpef1bu" path="res://Assets/Free 2/Terrain (16x16).png" id="2_ny3xb"]
@@ -10,10 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="4_ucqk3"]
 [ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="5_btoiy"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="6_bijwy"]
-[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="7_6k3v6"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="7_6k3v6"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="12_ayqxr"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="13_3uxuq"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="14_vgc5e"]
+[ext_resource type="PackedScene" uid="uid://byt6xsgykegvf" path="res://Scenes/Menu/control_panel.tscn" id="15_n0axi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xot2"]
 texture = ExtResource("2_ny3xb")
@@ -342,6 +343,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("12_ayqxr")]
+visible = false
 layout_mode = 1
 offset_left = 112.0
 offset_top = 96.0
@@ -358,3 +360,7 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
+
+[node name="ControlPanel" parent="UI" instance=ExtResource("15_n0axi")]
+offset_top = 140.0
+offset_bottom = 140.0

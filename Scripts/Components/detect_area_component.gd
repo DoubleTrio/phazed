@@ -21,8 +21,10 @@ func _on_entity_entered(area: Area2D):
 
 func _on_entity_exited(area: Area2D):
 	if not area is Entity: return
+	area = area as Entity
 	exit_entity.emit(entity)
 	EntityDictionary.erase(area)
+	area.exit_detect_area.emit(self)
 	
 var latest_entity : Entity :
 	get : 

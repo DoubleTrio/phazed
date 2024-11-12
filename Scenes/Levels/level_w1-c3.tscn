@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cm8qigrak06mh"]
+[gd_scene load_steps=19 format=4 uid="uid://1xeunct1ma2j"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_qmvw0"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_jq6nl"]
@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="9_dwc2o"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="10_ldwe0"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="11_l61h8"]
-[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="12_vprax"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="12_vprax"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="13_butmk"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="14_40yab"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="15_jmr1r"]
+[ext_resource type="PackedScene" uid="uid://byt6xsgykegvf" path="res://Scenes/Menu/control_panel.tscn" id="16_v2mq0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1jago"]
 texture = ExtResource("6_455gy")
@@ -399,10 +400,12 @@ level_path = "res://Scenes/Menu/level_selection.tscn"
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 19.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 59.0
 
 [node name="StatsHud" parent="UI" instance=ExtResource("13_butmk")]
+visible = false
 layout_mode = 1
 offset_left = 112.0
 offset_top = 96.0
@@ -419,3 +422,7 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
+
+[node name="ControlPanel" parent="UI" instance=ExtResource("16_v2mq0")]
+offset_top = 124.0
+offset_bottom = 124.0

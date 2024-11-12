@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c0xt2t5kin5cj"]
+[gd_scene load_steps=19 format=4 uid="uid://c0k2bx2ydtrmq"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_5oush"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_1al7p"]
@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="8_2ry8d"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="9_68xi2"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="10_sgyuh"]
-[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="11_s25qt"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="11_s25qt"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="12_w7m0p"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="13_s4q0t"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="14_klu7c"]
+[ext_resource type="PackedScene" uid="uid://byt6xsgykegvf" path="res://Scenes/Menu/control_panel.tscn" id="16_as4sn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f62pr"]
 texture = ExtResource("6_asa2s")
@@ -387,3 +388,9 @@ offset_bottom = -128.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
+
+[node name="ControlPanel" parent="UI" instance=ExtResource("16_as4sn")]
+offset_left = -25.0
+offset_top = 8.0
+offset_right = -25.0
+offset_bottom = 8.0

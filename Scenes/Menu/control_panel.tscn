@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://byt6xsgykegvf"]
+
+[ext_resource type="Texture2D" uid="uid://dx7v2vw75padj" path="res://Assets/Free 2/Menu/Buttons/Next.png" id="1_3keth"]
+[ext_resource type="Script" path="res://Scripts/Menu/control_panel.gd" id="1_bvnpx"]
+[ext_resource type="Texture2D" uid="uid://dacgwumvtipp4" path="res://Assets/Free 2/Menu/Buttons/Restart.png" id="1_ff2ev"]
+[ext_resource type="Texture2D" uid="uid://cqo7llc33drwk" path="res://Assets/Free 2/Menu/Buttons/Pause.png" id="2_gq7aa"]
+
+[node name="ControlPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bvnpx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -456.0
+offset_top = -38.0
+offset_right = 456.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+tooltip_text = "TestTip"
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 100
+
+[node name="RestartButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_ff2ev")
+
+[node name="PauseButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_gq7aa")
+
+[node name="SpeedUpButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_3keth")
+
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/PauseButton" to="." method="_on_pause_button_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/SpeedUpButton" to="." method="_on_speed_up_button_button_down"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/SpeedUpButton" to="." method="_on_speed_up_button_button_up"]

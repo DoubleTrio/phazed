@@ -52,7 +52,7 @@ func apply(owner: Entity, context: LevelContext):
 					#
 			#print(owner)
 			for entity: Entity in entities:
-				await entity.try_activate_trigger(context)
+				await entity.try_activate_triggers(context)
 				
 			
 					#if (should_move):

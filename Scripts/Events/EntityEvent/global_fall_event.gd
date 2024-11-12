@@ -94,7 +94,7 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 					)
 				
 				var sprite
-				if (entity.contains_component("AnimatedSprite2D")):
+				if (entity.contains_component("AnimatedSprite2D") and entity is Character):
 					sprite = entity.get_component("AnimatedSprite2D") as AnimatedSprite2D
 		
 					sprite.play("fall", 2)
@@ -119,4 +119,4 @@ func wait_all_finished_falling(fall_check_entity_group, context):
 				#GameManager.play_sound("woop.mp3")
 		#
 		for entity: Entity in fall_check_entity_group:
-			await entity.try_activate_trigger(context)
+			await entity.try_activate_triggers(context)
