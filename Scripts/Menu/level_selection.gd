@@ -7,10 +7,12 @@ const LEVEL_BTN = preload("res://Scenes/Menu/lvl_button.tscn")
 @onready var grid = $MarginContainer/VBoxContainer/GridContainer
 
 func _ready() -> void:
-	get_levels(dir_path)
+	get_levels(dir_path, 1)
+	get_levels(dir_path, 2)
+	get_levels(dir_path, "debug")
 
-func get_levels(path) -> void:
-	var dir = DirAccess.open("res://Scenes/Levels")
+func get_levels(path, world) -> void:
+	var dir = DirAccess.open("res://Scenes/Levels/world_"+str(world))
 	
 	var files_list = Array(dir.get_files())
 	files_list.sort_custom(func	(a:String,b): return float(a.split("_",true,1)[1])<float(b.split("_",true,1)[1]))

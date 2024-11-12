@@ -104,7 +104,6 @@ func action(level_scene: LevelScene, level_context: LevelContext):
 	finished_action.emit()
 	
 func after_action(level_scene: LevelScene, level_context: LevelContext):
-
 	await GameManager.wait_next_frame()
 	var pq = active_effects.on_after_action_end.merge_with(level_scene.active_effects.on_after_action_end)
 	for script: EntityEvent in pq.get_queue():
