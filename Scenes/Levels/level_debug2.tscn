@@ -14,12 +14,12 @@
 [ext_resource type="Resource" uid="uid://bouag52a0gqmj" path="res://Scripts/Resources/orange.tres" id="12_23hn3"]
 [ext_resource type="Resource" uid="uid://bxf4lni0hem80" path="res://Scripts/Resources/red.tres" id="13_cc563"]
 [ext_resource type="PackedScene" uid="uid://bhf80lgxfsvjh" path="res://Scenes/Entities/gravity_switch.tscn" id="14_kvdoo"]
-[ext_resource type="PackedScene" uid="uid://ce12kn882p77" path="res://Scenes/Entities/marker_teleporter.tscn" id="14_sq8gk"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/marker_teleporter.tscn" id="14_sq8gk"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="15_ktm45"]
 [ext_resource type="PackedScene" uid="uid://b4w71q4eudct0" path="res://Scenes/Blocks/lock_block.tscn" id="16_k6cd1"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="17_1kq3k"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="18_3awvj"]
-[ext_resource type="PackedScene" uid="uid://bgbpitksrb332" path="res://Scenes/Blocks/marker.tscn" id="18_jgpla"]
+[ext_resource type="PackedScene" path="res://Scenes/Blocks/marker.tscn" id="18_jgpla"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="19_qghsx"]
 [ext_resource type="Script" path="res://Scripts/global.gd" id="20_axidj"]
 
@@ -391,11 +391,14 @@ offset_bottom = -48.0
 script = ExtResource("18_3awvj")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("19_qghsx")]
-visible = false
 z_index = 1
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = -160.0
+offset_top = -144.0
+offset_right = -160.0
+offset_bottom = -144.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.5, 0.5)
