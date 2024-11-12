@@ -27,12 +27,14 @@ var blocks: Array[Area2D] = [] as Array[Area2D]
 @export var on_map_turn_start_scripts: Array[EntityEvent] = []
 @export var on_map_turn_end_scripts: Array[EntityEvent] = []
 
+enum Speed { PAUSED = 0, NORMAL = 1 , FAST = 2}
+
 var paused = false:
 	set(value):
 		if value:
-			Engine.time_scale = 0
+			set_speed(Speed.PAUSED)
 		else:
-			Engine.time_scale = 1
+			set_speed(Speed.NORMAL)
 			
 		paused = value
 
@@ -58,6 +60,7 @@ signal end_map_turn_finished()
 signal level_complete()
 
 signal level_start()
+
 
 
 
@@ -204,14 +207,18 @@ func remove_block(block: Area2D):
 	block.queue_free()
 	
 
+func set_speed(speed: Speed):
+	Engine.time_scale = speed
+
 func _input(event):
 	if event.is_pressed():
 		level_start.emit()
+	
 	if Input.is_action_just_pressed("pause"):
 		paused = !paused
-	else:
+	else: 
 		if !paused:
 			if Input.is_action_pressed("speed_up"):
-				Engine.time_scale = 2.2
+				set_speed(Speed.FAST)
 			else:
-				Engine.time_scale = 1
+				set_speed(Speed.NORMAL)

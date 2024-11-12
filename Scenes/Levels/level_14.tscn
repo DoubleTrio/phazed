@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cl6ppe3fcov4p"]
+[gd_scene load_steps=23 format=4 uid="uid://cl6ppe3fcov4p"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_vp1pu"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_ejgeq"]
@@ -10,8 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cubwp7yihpr51" path="res://Scenes/Entities/key.tscn" id="8_b2836"]
 [ext_resource type="Resource" uid="uid://bouag52a0gqmj" path="res://Scripts/Resources/orange.tres" id="9_mwrxk"]
 [ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="10_x65xf"]
-[ext_resource type="Resource" uid="uid://bxf4lni0hem80" path="res://Scripts/Resources/red.tres" id="11_0vqiy"]
-[ext_resource type="Resource" path="res://Scripts/Resources/green.tres" id="11_v8a63"]
+[ext_resource type="Resource" uid="uid://14elp133yh5l" path="res://Scripts/Resources/green.tres" id="11_v8a63"]
 [ext_resource type="PackedScene" uid="uid://orkocvc34pjk" path="res://Scenes/teleport_manager.tscn" id="12_2w468"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="13_dq0bv"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="14_rw3g3"]
@@ -366,7 +365,7 @@ color_code = ExtResource("9_mwrxk")
 
 [node name="LockBlock4" parent="LevelScene/Blocks" instance=ExtResource("15_u5cnc")]
 position = Vector2(48, 32)
-color_code = ExtResource("11_0vqiy")
+color_code = ExtResource("9_mwrxk")
 
 [node name="lvl_button" parent="." instance=ExtResource("16_f5wle")]
 offset_left = -228.0

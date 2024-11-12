@@ -1,18 +1,19 @@
 extends Control
 
-@onready var restart_button = $VBoxContainer/HBoxContainer/RestartButton
-@onready var pause_button = $VBoxContainer/HBoxContainer/PauseButton
-@onready var speed_up_button = $VBoxContainer/HBoxContainer/SpeedUpButton
+@onready var restart_button = $VBoxContainer/HBoxContainer/RestartButton as TextureButton
+@onready var pause_button = $VBoxContainer/HBoxContainer/PauseButton as TextureButton
+@onready var speed_up_button = $VBoxContainer/HBoxContainer/SpeedUpButton as TextureButton
 
+# TODO: Disable the button instead of checking if paused?
 func _on_speed_up_button_button_down():
 	if !LevelScene.instance.paused:
-		Engine.time_scale = 2.2
+		LevelScene.instance.set_speed(LevelScene.Speed.FAST)
 		
 
 func _on_speed_up_button_button_up():
 	if !LevelScene.instance.paused:
-		Engine.time_scale = 1
-
+		LevelScene.instance.set_speed(LevelScene.Speed.NORMAL)
+		
 func _on_pause_button_button_down():
 	LevelScene.instance.paused = !LevelScene.instance.paused
 
