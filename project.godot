@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 DS="*res://Scripts/Utils/priority_queue.gd"
 LevelEvents="*res://Scripts/level_events.gd"
-Helpers="*res://Scripts/helpers.gd"
 GameManager="*res://Scripts/game_manager.gd"
 
 [dotnet]
