@@ -11,7 +11,7 @@ func _ready() -> void:
 	var regex = RegEx.new()
 	regex.compile("^res://Scenes/Levels/level_(\\d+)\\.tscn$")
 	var curr_lvl_num = int(regex.search(file_path).get_string(1))
-	regex.compile("\\d+(?=\\.tscn)")
+	regex.compile("(?<=^res://Scenes/Levels/level_)\\d+(?=\\.tscn$)")
 	self.next_lvl_file_path = regex.sub(file_path,str(curr_lvl_num+1))
 	if !FileAccess.file_exists(self.next_lvl_file_path):
 		self.next_lvl_file_path = null
