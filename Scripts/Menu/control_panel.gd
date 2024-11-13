@@ -9,7 +9,6 @@ func _on_speed_up_button_button_down():
 	if !LevelScene.instance.paused:
 		LevelScene.instance.set_speed(LevelScene.Speed.FAST)
 		
-
 func _on_speed_up_button_button_up():
 	if !LevelScene.instance.paused:
 		LevelScene.instance.set_speed(LevelScene.Speed.NORMAL)

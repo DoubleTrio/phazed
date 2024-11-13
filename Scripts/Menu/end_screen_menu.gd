@@ -16,10 +16,11 @@ func _ready() -> void:
 	if !FileAccess.file_exists(self.next_lvl_file_path):
 		self.next_lvl_file_path = null
 		next_button.disabled = true
+		next_button.text = "No more levels!"
 
 func _on_next_button_down():
-	print("next level button triggered")
 	LevelScene.instance = null
+	GameManager.selected_level = self.next_lvl_file_path
 	get_tree().change_scene_to_file.bind(self.next_lvl_file_path).call_deferred()
 
 func _on_level_selector_button_down():
