@@ -14,11 +14,9 @@ func apply(owner: Entity, context: LevelContext):
 		#raycast = owner.get_component("RayCast2D") as RayCast2D
 		#old_raycast_pos = raycast.position
 		
-		
 		grid_size = LevelScene.instance.grid_size
 		
 		var line: Line2D = null
-		
 		
 		if owner.contains_component("Line2D"):
 			line = owner.get_component("Line2D") as Line2D

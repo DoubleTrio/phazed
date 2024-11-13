@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://k1lsl5l8qnwa"]
+[gd_scene load_steps=21 format=4 uid="uid://b8b3k7gspay05"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_gvgxn"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_6fv4r"]
@@ -299,7 +299,7 @@ texture = ExtResource("6_0mnah")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wmbrn")
 
-[node name="Level11" type="Node2D"]
+[node name="Level10" type="Node2D"]
 
 [node name="LevelScene" parent="." instance=ExtResource("1_gvgxn")]
 game_stats = ExtResource("2_6fv4r")
