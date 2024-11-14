@@ -343,11 +343,11 @@ position = Vector2(32, -48)
 position = Vector2(32, -64)
 
 [node name="Key2" parent="LevelScene/Entities" instance=ExtResource("8_g0hqg")]
-position = Vector2(-160, -16)
+position = Vector2(-160, -32)
 color_id = ExtResource("11_35dxj")
 
 [node name="Key3" parent="LevelScene/Entities" instance=ExtResource("8_g0hqg")]
-position = Vector2(32, 80)
+position = Vector2(32, 64)
 color_id = ExtResource("12_8otni")
 
 [node name="Box7" parent="LevelScene/Entities" instance=ExtResource("10_xsp8t")]
