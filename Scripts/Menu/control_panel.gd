@@ -1,10 +1,5 @@
 extends Control
 
-@onready var restart_button = $VBoxContainer/HBoxContainer/RestartButton as TextureButton
-@onready var pause_button = $VBoxContainer/HBoxContainer/PauseButton as TextureButton
-@onready var speed_up_button = $VBoxContainer/HBoxContainer/SpeedUpButton as TextureButton
-
-# TODO: Disable the button instead of checking if paused?
 func _on_speed_up_button_button_down():
 	var event = InputEventAction.new()
 	event.action = "speed_up"

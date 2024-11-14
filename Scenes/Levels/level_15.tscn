@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c64arqdimlr4t"]
+[gd_scene load_steps=25 format=4 uid="uid://c64arqdimlr4t"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_fc2h6"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_6ovx8"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://14elp133yh5l" path="res://Scripts/Resources/green.tres" id="15_xkmy4"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="16_5f3dc"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="17_g4bgp"]
+[ext_resource type="PackedScene" uid="uid://byt6xsgykegvf" path="res://Scenes/Menu/control_panel.tscn" id="22_43cu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukj8p"]
 texture = ExtResource("6_keu3s")
@@ -469,33 +470,64 @@ color_code = ExtResource("9_qb2vh")
 position = Vector2(80, 64)
 color_code = ExtResource("9_qb2vh")
 
-[node name="lvl_button" parent="." instance=ExtResource("14_764pj")]
-offset_left = -228.0
-offset_top = -128.0
-offset_right = -192.0
-offset_bottom = -103.0
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -230.0
+offset_top = -130.0
+offset_right = 230.0
+offset_bottom = 130.0
+mouse_filter = 2
+
+[node name="BackButton" parent="UI" instance=ExtResource("14_764pj")]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 49.0
+offset_bottom = 33.0
 theme_override_font_sizes/font_size = 12
 text = "Back"
 level_path = "res://Scenes/Menu/level_selection.tscn"
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-
 [node name="StatsHud" parent="UI" instance=ExtResource("15_hhynx")]
+visible = false
 layout_mode = 1
-offset_left = 128.0
-offset_top = 112.0
-offset_right = 128.0
-offset_bottom = 112.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.1408
+offset_top = -22.4067
+offset_right = -84.1408
+offset_bottom = -22.4067
+grow_horizontal = 0
+grow_vertical = 0
 script = ExtResource("16_5f3dc")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("17_g4bgp")]
 visible = false
 z_index = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+
+[node name="ControlPanel" parent="UI" instance=ExtResource("22_43cu0")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.622131
+offset_top = -19.0393
+offset_right = -0.622131
+offset_bottom = -19.0393
+grow_horizontal = 2
+grow_vertical = 0

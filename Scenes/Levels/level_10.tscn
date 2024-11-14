@@ -350,40 +350,64 @@ color_code = ExtResource("9_q7oos")
 position = Vector2(16, 32)
 color_code = ExtResource("9_q7oos")
 
-[node name="lvl_button" parent="." instance=ExtResource("14_y32t2")]
-offset_left = -228.0
-offset_top = -128.0
-offset_right = -192.0
-offset_bottom = -103.0
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -230.0
+offset_top = -130.0
+offset_right = 230.0
+offset_bottom = 130.0
+mouse_filter = 2
+
+[node name="BackButton" parent="UI" instance=ExtResource("14_y32t2")]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 49.0
+offset_bottom = 33.0
 theme_override_font_sizes/font_size = 12
 text = "Back"
 level_path = "res://Scenes/Menu/level_selection.tscn"
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 16.0
-offset_right = 40.0
-offset_bottom = 56.0
-
 [node name="StatsHud" parent="UI" instance=ExtResource("15_8i5si")]
+visible = false
 layout_mode = 1
-offset_left = 114.0
-offset_top = 98.0
-offset_right = 114.0
-offset_bottom = 98.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -84.1408
+offset_top = -22.4067
+offset_right = -84.1408
+offset_bottom = -22.4067
+grow_horizontal = 0
+grow_vertical = 0
 script = ExtResource("16_7jrch")
 
 [node name="EndScreen" parent="UI" instance=ExtResource("17_gwpj2")]
 visible = false
 z_index = 1
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 
 [node name="ControlPanel" parent="UI" instance=ExtResource("18_qddgm")]
-offset_top = 124.0
-offset_bottom = 124.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.622131
+offset_top = -19.0393
+offset_right = -0.622131
+offset_bottom = -19.0393
+grow_horizontal = 2
+grow_vertical = 0

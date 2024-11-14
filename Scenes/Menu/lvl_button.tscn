@@ -3,17 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/Menu/lvl_button.gd" id="1_x0j1r"]
 
 [node name="lvl_button" type="Button"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -25.0
-offset_right = 54.0
-offset_bottom = 25.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 108.0
+offset_bottom = 50.0
 theme_override_font_sizes/font_size = 30
 text = "Level 1"
 script = ExtResource("1_x0j1r")
