@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://be70rl2h7j2b5"]
+[gd_scene load_steps=23 format=4 uid="uid://dq4u1yaeok8xk"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_cf0w2"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_a23ey"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="11_g83ih"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="12_2er8a"]
 [ext_resource type="PackedScene" uid="uid://b4w71q4eudct0" path="res://Scenes/Blocks/lock_block.tscn" id="13_jxxl4"]
-[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="14_8jpj7"]
+[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="14_8jpj7"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="15_5kae2"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="16_nutql"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="17_6jxdn"]

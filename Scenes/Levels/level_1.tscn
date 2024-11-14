@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="17_npars"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="18_ouuhv"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="19_tqylq"]
-[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="21_w1db4"]
+[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="21_w1db4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7c2j"]
 texture = ExtResource("6_rkhhp")

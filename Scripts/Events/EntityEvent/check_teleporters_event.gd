@@ -1,7 +1,6 @@
 extends EntityEvent
 
 func apply(owner: Entity, context: LevelContext):
-	
 	var teleporter_manager: TeleportManager = LevelScene.instance.teleport_manager
 	var active_teleporters = teleporter_manager.active_teleporters 
 	var should_teleport = false
@@ -24,5 +23,4 @@ func apply(owner: Entity, context: LevelContext):
 		LevelEvents.on_teleport.emit()
 		teleporter_manager.remove_active_teleporters()
 		GameManager.play_sound("woop.mp3")
-		#teleporter_manager.teleport_noise.play()
 		

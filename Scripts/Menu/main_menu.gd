@@ -6,7 +6,7 @@ func _ready():
 	$MarginContainer/VBoxContainer/MenuOptions/Start.grab_focus();
 	
 func _on_start_button_down():
-	get_tree().change_scene_to_file("res://Scenes/Menu/level_selection.tscn")
+	get_tree().change_scene_to_file.bind("res://Scenes/Menu/level_selection.tscn").call_deferred()
 
 
 func _on_options_button_down():

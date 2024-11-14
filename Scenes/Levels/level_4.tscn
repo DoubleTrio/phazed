@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://c0xt2t5kin5cj"]
+[gd_scene load_steps=19 format=4 uid="uid://bjesu23ny2eoj"]
 
 [ext_resource type="PackedScene" uid="uid://c4mqa82p8ajkl" path="res://Scenes/level_scene.tscn" id="1_bjm10"]
 [ext_resource type="Resource" uid="uid://bwb8wjpngyfje" path="res://Scripts/game_stats.tres" id="2_1uhfd"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b0fs8hiag2xea" path="res://Scenes/Entities/box.tscn" id="8_qsfed"]
 [ext_resource type="PackedScene" uid="uid://dp43g47q8jjmd" path="res://Scenes/Entities/teleporter.tscn" id="9_mxgk6"]
 [ext_resource type="PackedScene" uid="uid://pqboxejsdn6r" path="res://Scenes/Entities/battery.tscn" id="10_2pomd"]
-[ext_resource type="PackedScene" path="res://Scenes/Menu/lvl_button.tscn" id="11_2y03a"]
+[ext_resource type="PackedScene" uid="uid://cra2m2tsne757" path="res://Scenes/Menu/lvl_button.tscn" id="11_2y03a"]
 [ext_resource type="PackedScene" uid="uid://ct36ut416ybs4" path="res://Scenes/Menu/stats_hud.tscn" id="12_i5pnw"]
 [ext_resource type="Script" path="res://Scripts/Menu/stats_hud.gd" id="13_kp1ug"]
 [ext_resource type="PackedScene" uid="uid://gs1qi0p3qhyn" path="res://Scenes/Menu/end_screen.tscn" id="14_w28q1"]
@@ -297,7 +297,7 @@ texture = ExtResource("6_13iac")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_w8e7g")
 
-[node name="Level9" type="Node2D"]
+[node name="Level4" type="Node2D"]
 
 [node name="LevelScene" parent="." instance=ExtResource("1_bjm10")]
 game_stats = ExtResource("2_1uhfd")

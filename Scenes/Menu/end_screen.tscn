@@ -55,7 +55,6 @@ offset_top = -38.0
 offset_right = 456.0
 offset_bottom = 38.0
 size_flags_vertical = 4
-tooltip_text = "TestTip"
 theme_override_constants/separation = 12
 
 [node name="TeleportInfo" type="Label" parent="VBoxContainer"]
@@ -89,8 +88,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 20
-text = "Next (TODO)
-"
+text = "Next level"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

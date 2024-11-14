@@ -203,16 +203,3 @@ func remove_block(block: Area2D):
 
 func set_speed(speed: Speed):
 	Engine.time_scale = speed
-
-func _input(event):
-	if event.is_pressed():
-		level_start.emit()
-	
-	if Input.is_action_just_pressed("pause"):
-		paused = !paused
-	else: 
-		if !paused:
-			if Input.is_action_pressed("speed_up"):
-				set_speed(Speed.FAST)
-			else:
-				set_speed(Speed.NORMAL)
