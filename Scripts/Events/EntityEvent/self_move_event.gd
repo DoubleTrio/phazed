@@ -3,8 +3,6 @@ extends EntityEvent
 @export var animation_speed = 4
 
 
-
-
 var old_raycast_pos: Vector2
 var grid_size: int
 

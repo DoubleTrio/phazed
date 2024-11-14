@@ -51,5 +51,6 @@ texture_normal = ExtResource("1_3keth")
 
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/PauseButton" to="." method="_on_pause_button_button_down"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/PauseButton" to="." method="_on_pause_button_button_up"]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/SpeedUpButton" to="." method="_on_speed_up_button_button_down"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/SpeedUpButton" to="." method="_on_speed_up_button_button_up"]

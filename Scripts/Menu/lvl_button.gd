@@ -21,5 +21,4 @@ func grow_btn(end_scale: Vector2, duration: float) -> void:
 func _on_pressed() -> void:
 	if level_path == null:
 		return
-	GameManager.selected_level = level_path
-	get_tree().change_scene_to_file(level_path)
+	get_tree().change_scene_to_file.bind(level_path).call_deferred()

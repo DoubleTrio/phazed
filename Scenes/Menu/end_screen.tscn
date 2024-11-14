@@ -55,7 +55,6 @@ offset_top = -38.0
 offset_right = 456.0
 offset_bottom = 38.0
 size_flags_vertical = 4
-tooltip_text = "TestTip"
 theme_override_constants/separation = 12
 
 [node name="TeleportInfo" type="Label" parent="VBoxContainer"]

@@ -19,12 +19,16 @@ func _ready() -> void:
 		next_button.text = "No more levels!"
 
 func _on_next_button_down():
-	LevelScene.instance = null
-	GameManager.selected_level = self.next_lvl_file_path
-	get_tree().change_scene_to_file.bind(self.next_lvl_file_path).call_deferred()
+	(func():
+		LevelScene.instance = null
+		get_tree().change_scene_to_file(self.next_lvl_file_path)
+	).call_deferred()
 
 func _on_level_selector_button_down():
-	get_tree().change_scene_to_file("res://Scenes/Menu/level_selection.tscn")
+	(func():
+		LevelScene.instance = null
+		get_tree().change_scene_to_file("res://Scenes/Menu/level_selection.tscn")
+	).call_deferred()
 
 func update_count(count: int):
 	teleport_info.text = "Teleport Used: " + str(count)
