@@ -21,7 +21,7 @@ func has_entity() -> bool:
 
 func _ready():
 	super._ready()
-	sprite.modulate = inactive_color 
+	set_color(inactive_color)
 	
 func _enter_entity(entity: Entity):
 	current_entity = entity
@@ -36,16 +36,19 @@ func _on_deactivate():
 	pass
 
 func activate() -> void:
-	sprite.modulate = active_color
+	set_color(active_color)
 	
 func select() -> void:
 	toggle_component.toggle_on()
-	sprite.modulate = selected_color
+	set_color(selected_color)
 
 func deactivate() -> void:
 	toggle_component.toggle_off()
-	sprite.modulate = inactive_color
+	set_color(inactive_color)
 
 func is_active() -> bool:
 	return toggle_component.is_active
-	
+
+func set_color(new_color: Color) -> void:
+	sprite.modulate = new_color
+	sprite.material.set_shader_parameter("color_workaround",new_color)

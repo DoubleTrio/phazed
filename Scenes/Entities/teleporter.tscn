@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://dp43g47q8jjmd"]
+[gd_scene load_steps=24 format=3 uid="uid://dp43g47q8jjmd"]
 
 [ext_resource type="Texture2D" uid="uid://8hq6lban1nqq" path="res://Assets/Free 2/Items/Fruits/Collected.png" id="1_6auhy"]
 [ext_resource type="Script" path="res://Scripts/Entities/teleporter.gd" id="1_mib8y"]
+[ext_resource type="Shader" path="res://Shaders/teleporter.gdshader" id="2_5og7w"]
 [ext_resource type="Script" path="res://Scripts/Components/click_component.gd" id="3_q6643"]
 [ext_resource type="Script" path="res://Scripts/Components/toggle_component.gd" id="4_5g4cl"]
 [ext_resource type="Script" path="res://Scripts/Components/detect_area_component.gd" id="5_qgmpp"]
@@ -11,6 +12,13 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5ewn6"]
 radius = 7.07107
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ceqac"]
+resource_local_to_scene = true
+shader = ExtResource("2_5og7w")
+shader_parameter/color_workaround = Vector4(1, 1, 1, 1)
+shader_parameter/time_scale = 1.0
+shader_parameter/pulse_strength = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcog1"]
 atlas = ExtResource("1_6auhy")
@@ -108,6 +116,7 @@ position = Vector2(8, -8)
 shape = SubResource("CircleShape2D_5ewn6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_ceqac")
 position = Vector2(8, -8)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_dve3u")
